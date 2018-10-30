@@ -143,6 +143,9 @@
       </file>
     </leaf>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Book_shop2/Models/book.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Book_shop2/Program.cs" root0="FORCE_HIGHLIGHTING" />
@@ -204,18 +207,6 @@
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
               <item name="Book_shop2" type="24d0babc:SolutionExplorerModelNode" />
               <item name="Book_shop2" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="Book_shop2" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Book_shop2" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Properties" type="24d0babc:SolutionExplorerModelNode" />
-            </path>
-            <path>
-              <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
-              <item name="Book_shop2" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Book_shop2" type="24d0babc:SolutionExplorerModelNode" />
-              <item name="Controllers" type="24d0babc:SolutionExplorerModelNode" />
             </path>
             <path>
               <item name="Project" type="784c90a0:SolutionExplorerRootNode" />
@@ -300,7 +291,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11982000" />
+    <option name="totallyTimeSpent" value="12234000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
