@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Book_shop2", "Book_shop2\Book_shop2.csproj", "{8D77BDAD-BD73-4757-B57C-C7E5699AC645}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8D77BDAD-BD73-4757-B57C-C7E5699AC645}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D77BDAD-BD73-4757-B57C-C7E5699AC645}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D77BDAD-BD73-4757-B57C-C7E5699AC645}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D77BDAD-BD73-4757-B57C-C7E5699AC645}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
