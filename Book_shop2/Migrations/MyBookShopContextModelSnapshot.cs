@@ -38,6 +38,72 @@ namespace Book_shop2.Migrations
                     b.ToTable("Books");
                 });
 
+            modelBuilder.Entity("Book_shop2.Models.client", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Adress");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Phone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Clients");
+                });
+
+            modelBuilder.Entity("Book_shop2.Models.order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Book_id");
+
+                    b.Property<int>("Cost");
+
+                    b.Property<int>("Count");
+
+                    b.Property<string>("Courier_name");
+
+                    b.Property<int>("Customer_id");
+
+                    b.Property<string>("Date_on");
+
+                    b.Property<string>("Date_to");
+
+                    b.Property<int>("Prise");
+
+                    b.Property<string>("Status");
+
+                    b.Property<int>("Stuff_id");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Orders");
+                });
+
+            modelBuilder.Entity("Book_shop2.Models.provider", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("City");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Phone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Providers");
+                });
+
             modelBuilder.Entity("Book_shop2.Models.purchase", b =>
                 {
                     b.Property<int>("id")
@@ -55,7 +121,63 @@ namespace Book_shop2.Migrations
 
                     b.HasKey("id");
 
-                    b.ToTable("Purchase");
+                    b.ToTable("Purchases");
+                });
+
+            modelBuilder.Entity("Book_shop2.Models.stock", b =>
+                {
+                    b.Property<int>("Book_id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Count");
+
+                    b.Property<int>("Supply_id");
+
+                    b.HasKey("Book_id");
+
+                    b.ToTable("Stock");
+                });
+
+            modelBuilder.Entity("Book_shop2.Models.supply", b =>
+                {
+                    b.Property<int>("Supply_id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("Book_id");
+
+                    b.Property<int>("Cost");
+
+                    b.Property<int>("Count");
+
+                    b.Property<string>("Date");
+
+                    b.Property<int>("Price");
+
+                    b.Property<int>("Provider_id");
+
+                    b.HasKey("Supply_id");
+
+                    b.ToTable("Supplies");
+                });
+
+            modelBuilder.Entity("Book_shop2.Models.user", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Activity");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Password");
+
+                    b.Property<string>("Role");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

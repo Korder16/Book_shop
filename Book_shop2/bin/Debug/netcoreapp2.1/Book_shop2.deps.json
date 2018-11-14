@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "f6e5dcaea9ad446e60be2a6587e7ed64d0061a2e"
+    "signature": "0e0d9bd107f28bbfa86b20ed539fcb3d329cc55c"
   },
   "compilationOptions": {
     "defines": [
@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v2.1": {
       "Book_shop2/1.0.0": {
         "dependencies": {
+          "Dapper": "1.50.5",
           "Microsoft.AspNetCore.App": "2.1.1",
           "Microsoft.AspNetCore.Razor.Design": "2.1.2",
           "Microsoft.EntityFrameworkCore.Design": "2.2.0-preview3-35497",
@@ -37,6 +38,22 @@
         },
         "compile": {
           "Book_shop2.dll": {}
+        }
+      },
+      "Dapper/1.50.5": {
+        "dependencies": {
+          "System.Data.SqlClient": "4.5.1",
+          "System.Reflection.Emit.Lightweight": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.4.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Dapper.dll": {
+            "assemblyVersion": "1.50.5.0",
+            "fileVersion": "1.50.5.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Dapper.dll": {}
         }
       },
       "Microsoft.AspNetCore.Razor.Design/2.1.2": {},
@@ -532,6 +549,7 @@
           "System.Runtime": "4.3.0"
         }
       },
+      "System.Reflection.TypeExtensions/4.4.0": {},
       "System.ValueTuple/4.5.0": {},
       "Microsoft.AspNet.WebApi.Client/5.2.6": {
         "dependencies": {
@@ -1816,7 +1834,7 @@
           "System.Collections": "4.3.0",
           "System.IO": "4.3.0",
           "System.IO.FileSystem": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.4.0",
           "System.Runtime.Extensions": "4.3.0",
           "System.Runtime.InteropServices": "4.3.0",
           "System.Runtime.InteropServices.RuntimeInformation": "4.3.0"
@@ -2527,7 +2545,7 @@
           "System.Reflection.Emit": "4.3.0",
           "System.Reflection.Emit.ILGeneration": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.4.0",
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Runtime.Extensions": "4.3.0",
@@ -2653,7 +2671,7 @@
           "System.Reflection.Emit.Lightweight": "4.3.0",
           "System.Reflection.Extensions": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.4.0",
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Runtime.Extensions": "4.3.0",
@@ -2736,7 +2754,7 @@
           "System.Reflection.Emit.Lightweight": "4.3.0",
           "System.Reflection.Extensions": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.4.0",
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Runtime.Extensions": "4.3.0",
@@ -2806,13 +2824,6 @@
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.0",
           "Microsoft.NETCore.Targets": "2.1.0",
-          "System.Runtime": "4.3.0"
-        },
-        "compileOnly": true
-      },
-      "System.Reflection.TypeExtensions/4.3.0": {
-        "dependencies": {
-          "System.Reflection": "4.3.0",
           "System.Runtime": "4.3.0"
         },
         "compileOnly": true
@@ -3230,7 +3241,7 @@
           "System.Reflection.Emit.ILGeneration": "4.3.0",
           "System.Reflection.Extensions": "4.3.0",
           "System.Reflection.Primitives": "4.3.0",
-          "System.Reflection.TypeExtensions": "4.3.0",
+          "System.Reflection.TypeExtensions": "4.4.0",
           "System.Resources.ResourceManager": "4.3.0",
           "System.Runtime": "4.3.0",
           "System.Runtime.Extensions": "4.3.0",
@@ -3276,6 +3287,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Dapper/1.50.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AzAdZ9fEzUtav3Sbc5CMgz5O2oYkc5g1r+g1h/Vn+wqcInII+xtNEfyZryeW90Wq72bxjEBJhe18j+2SrGrc5A==",
+      "path": "dapper/1.50.5",
+      "hashPath": "dapper.1.50.5.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Razor.Design/2.1.2": {
       "type": "package",
@@ -3500,6 +3518,13 @@
       "sha512": "sha512-Yn/WfYe9RoRfmSLvUt2JerP0BTGGykCZkQPgojaxgzF2N0oPo+/AhB8TXOpdCcNlrG3VRtsamtK2uzsp3cqRVw==",
       "path": "system.linq.queryable/4.0.1",
       "hashPath": "system.linq.queryable.4.0.1.nupkg.sha512"
+    },
+    "System.Reflection.TypeExtensions/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JRxOAH6by+wn1gNnZc9jf2HbO/szhMJuLY2w44nEW77354WntXlFzWSVkx6280Uvcl3URZ/At+444vjX0/X1Aw==",
+      "path": "system.reflection.typeextensions/4.4.0",
+      "hashPath": "system.reflection.typeextensions.4.4.0.nupkg.sha512"
     },
     "System.ValueTuple/4.5.0": {
       "type": "package",
@@ -4942,13 +4967,6 @@
       "sha512": "sha512-5RXItQz5As4xN2/YUDxdpsEkMhvw3e6aNveFXUn4Hl/udNTCNhnKp8lT9fnc3MhvGKh1baak5CovpuQUXHAlIA==",
       "path": "system.reflection.primitives/4.3.0",
       "hashPath": "system.reflection.primitives.4.3.0.nupkg.sha512"
-    },
-    "System.Reflection.TypeExtensions/4.3.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-7u6ulLcZbyxB5Gq0nMkQttcdBTx57ibzw+4IOXEfR+sXYQoHvjW5LTLyNr8O22UIMrqYbchJQJnos4eooYzYJA==",
-      "path": "system.reflection.typeextensions/4.3.0",
-      "hashPath": "system.reflection.typeextensions.4.3.0.nupkg.sha512"
     },
     "System.Resources.ResourceManager/4.3.0": {
       "type": "package",
