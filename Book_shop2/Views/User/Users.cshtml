@@ -1,0 +1,33 @@
+@using Microsoft.AspNetCore.Rewrite.Internal.ApacheModRewrite
+
+
+<html>
+<head>
+    <title>Список пользователей</title>
+</head>
+<body>
+<div>
+    <h3>Пользователи</h3>
+</div>
+<div style="position: fixed; top: 67px; right: 200px;">
+    <a href="../Home/CreateUser" type="button" class="btn btn-success">Добавить нового пользователя</a>
+</div>
+<table class="table table-striped">
+    <tr>
+        <td>Имя</td>
+        <td>Должность</td>
+        <td>Состояние</td>
+        <td>Эл. почта</td>
+    </tr>
+    @foreach (var user in @ViewBag.User)
+    {
+        <tr>
+            <td>@user.Name</td>
+            <td>@user.Role</td>
+            <td>@user.Activity</td>
+            <td>@user.Email</td>
+        </tr>
+    }
+</table>
+</body>
+</html>

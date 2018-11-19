@@ -1,0 +1,36 @@
+@using Microsoft.AspNetCore.Rewrite.Internal.ApacheModRewrite
+@model IEnumerable<user>
+
+@{
+    //ViewBag.Uzers;
+    //ViewData["Title"] = "Home Page";
+}
+
+<html>
+<head>
+    <title>Статистики</title>
+</head>
+<body>
+<div>
+    <h3>Статистика по сотрудникам</h3>
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <td>Имя</td>
+        <td>Количество продаж</td>
+        <td>Количество заказов</td>
+        <td>Процент успешных заказов, %</td>
+    </tr>
+    @foreach (var stat in @ViewBag.StatOrdersStuff)
+    {
+        <tr>
+            <td>@stat.Name</td>
+            <td>@stat.PurchasesCount</td>
+            <td>@stat.OrdersCount</td>
+            <td>@stat.OrdersPercent</td>
+        </tr>
+    }
+</table>
+</body>
+</html>

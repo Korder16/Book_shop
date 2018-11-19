@@ -1,0 +1,35 @@
+@model IEnumerable<Book_shop2.Models.client>
+@{
+    //ViewData["Title"] = "Home Page";
+}
+
+<html>
+<head>
+    <title>Список клиентов</title>
+</head>
+<body>
+<div>
+    <h3>Клиенты</h3>
+</div>
+<div style="position: fixed; top: 67px; right: 200px;">
+    <a href="../Client/AddClient" type="button" class="btn btn-success">Добавить клиента</a>
+</div>
+<table class="table table-striped">
+    <tr>
+        <td>Имя</td>
+        <td>Телефон</td>
+        <td>Email</td>
+        <td>Адрес</td>
+    </tr>
+    @foreach (var client in Model)
+    {
+        <tr>
+            <td>@client.Name</td>
+            <td>@client.Phone</td>
+            <td>@client.Email</td>
+            <td>@client.Adress</td>
+        </tr>
+    }
+</table>
+</body>
+</html>

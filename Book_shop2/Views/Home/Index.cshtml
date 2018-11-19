@@ -1,6 +1,8 @@
-﻿@model IEnumerable<Book_shop2.Models.book>
+﻿@using Microsoft.EntityFrameworkCore
+@model IEnumerable<Book_shop2.Models.book>
 @{
     //ViewData["Title"] = "Home Page";
+    var SelectQuery = "SELECT * FROM Books ORDER BY Name";
 }
 
 <html>
@@ -30,5 +32,6 @@
         </tr>
     }
 </table>
+
 </body>
 </html>

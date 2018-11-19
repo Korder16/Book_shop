@@ -1,0 +1,42 @@
+@model Book_shop2.Models.book
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 style="display: flex; justify-content: center">Новая книга</h2>
+<div style="display: flex; justify-content: center; align-items: center">
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.name, "Название книги")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.name)
+        ;
+        <br/><br/>
+        @Html.LabelFor(model => model.author, "Автор")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.author)
+        
+        <br/><br/>
+        @Html.LabelFor(model => model.genre, "Жанр")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.genre)
+        ;
+        <br/><br/>
+        @Html.LabelFor(model => model.price, "Цена")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.price)
+        ;
+        <br/><br/>
+        @Html.LabelFor(model => model.year, "Год")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.year)
+        ;
+        <br/>
+        <input type="submit" class="btn btn-primary" value="Добавить"/>                                                        
+    }
+</div>

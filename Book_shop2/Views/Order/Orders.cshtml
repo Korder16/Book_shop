@@ -1,0 +1,53 @@
+@model IEnumerable<Book_shop2.Models.order>
+@{
+    //ViewData["Title"] = "Home Page";
+}
+
+<html>
+<head>
+    <title>Список заказов</title>
+</head>
+<body>
+<div>
+    <h3>Заказы</h3>
+</div>
+<div style="position: fixed; top: 67px; right: 200px;">
+    <a href="../Home/CreateOrder" type="button" class="btn btn-success">Добавить заказ</a>
+</div>
+<table class="table table-striped">
+    <tr>
+        <td>Книга</td>
+        <td>Жанр</td>
+        <td>Автор</td>
+        <td>Клиент</td>
+        <td>Телефон</td>
+        <td>Адрес</td>
+        <td>Дата заказа</td>
+        <td>Дата доставки</td>
+        <td>Цена</td>
+        <td>Количество</td>
+        <td>Стоимость</td>
+        <td>Статус</td>
+        <td>Курьер</td>
+    </tr>
+    @foreach (var order in @ViewBag.ListOrders)
+    {
+        <tr>
+            <td>@order.Name</td>
+            <td>@order.Genre</td>
+            <td>@order.Author</td>
+            <td>@order.Client</td>
+            <td>@order.Phone</td>
+            <td>@order.Adress</td>
+            <td>@order.Date_on</td>
+            <td>@order.Date_to</td>
+            <td>@order.Price</td>
+            <td>@order.Count</td>
+            <td>@order.Cost</td>
+            <td>@order.Status</td>
+            <td>@order.Courier_name</td>
+        </tr>
+    }
+</table>
+</body>
+</html>

@@ -12,7 +12,22 @@
         <e p="Bin" t="ExcludeRecursive" />
         <e p="Book_shop2.csproj" t="IncludeRecursive" />
         <e p="Controllers" t="Include">
+          <e p="BookController.cs" t="Include" />
+          <e p="ClientController.cs" t="Include" />
           <e p="HomeController.cs" t="Include" />
+          <e p="OrderController.cs" t="Include" />
+          <e p="ProviderController.cs" t="Include" />
+          <e p="PurchaseController.cs" t="Include" />
+          <e p="SupplyController.cs" t="Include" />
+          <e p="UserController.cs" t="Include" />
+        </e>
+        <e p="Helpers" t="Include">
+          <e p="SqlListOrders.cs" t="Include" />
+          <e p="SqlListPurchases.cs" t="Include" />
+          <e p="SqlRequestOrder.cs" t="Include" />
+          <e p="SqlRequestPurchase.cs" t="Include" />
+          <e p="SqlRequestStatistics.cs" t="Include" />
+          <e p="SqlRequestTest.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
           <e p="20181028224059_InitialMigration.cs" t="Include" />
@@ -31,12 +46,23 @@
           <e p="20181112075644_Alpha4.1Migr.Designer.cs" t="Include" />
           <e p="20181112095953_Alpha5Migr.cs" t="Include" />
           <e p="20181112095953_Alpha5Migr.Designer.cs" t="Include" />
+          <e p="20181117152138_Alpha6Migration.cs" t="Include" />
+          <e p="20181117152138_Alpha6Migration.Designer.cs" t="Include" />
+          <e p="20181119091218_Alpha7Migr.cs" t="Include" />
+          <e p="20181119091218_Alpha7Migr.Designer.cs" t="Include" />
+          <e p="20181119092230_Beta1Migr.cs" t="Include" />
+          <e p="20181119092230_Beta1Migr.Designer.cs" t="Include" />
+          <e p="20181119092840_Beta2Migr.cs" t="Include" />
+          <e p="20181119092840_Beta2Migr.Designer.cs" t="Include" />
+          <e p="20181119093609_Beta3Migr.cs" t="Include" />
+          <e p="20181119093609_Beta3Migr.Designer.cs" t="Include" />
           <e p="MyBookShopContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
           <e p="book.cs" t="Include" />
           <e p="client.cs" t="Include" />
           <e p="ErrorViewModel.cs" t="Include" />
+          <e p="LoginModel.cs" t="Include" />
           <e p="MyBookShopContext.cs" t="Include" />
           <e p="order.cs" t="Include" />
           <e p="provider.cs" t="Include" />
@@ -60,32 +86,47 @@
         <e p="Views" t="Include">
           <e p="_ViewImports.cshtml" t="Include" />
           <e p="_ViewStart.cshtml" t="Include" />
+          <e p="Book" t="Include">
+            <e p="Books.cshtml" t="Include" />
+            <e p="CreateBook.cshtml" t="Include" />
+          </e>
+          <e p="Client" t="Include">
+            <e p="AddClient.cshtml" t="Include" />
+            <e p="Clients.cshtml" t="Include" />
+          </e>
           <e p="Home" t="Include">
             <e p="About.cshtml" t="Include" />
-            <e p="AddClient.cshtml" t="Include" />
-            <e p="AddSupply.cshtml" t="Include" />
-            <e p="Books.cshtml" t="Include" />
-            <e p="Clients.cshtml" t="Include" />
             <e p="Contact.cshtml" t="Include" />
-            <e p="CreateBook.cshtml" t="Include" />
-            <e p="CreateOrder.cshtml" t="Include" />
-            <e p="CreateProvider.cshtml" t="Include" />
-            <e p="CreatePurchase.cshtml" t="Include" />
-            <e p="CreateUser.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
             <e p="Login.cshtml" t="Include" />
-            <e p="Orders.cshtml" t="Include" />
             <e p="Privacy.cshtml" t="Include" />
+            <e p="Statistics.cshtml" t="Include" />
+          </e>
+          <e p="Order" t="Include">
+            <e p="CreateOrder.cshtml" t="Include" />
+            <e p="Orders.cshtml" t="Include" />
+          </e>
+          <e p="Provider" t="Include">
+            <e p="CreateProvider.cshtml" t="Include" />
             <e p="Providers.cshtml" t="Include" />
+          </e>
+          <e p="Purchase" t="Include">
+            <e p="CreatePurchase.cshtml" t="Include" />
             <e p="Purchases.cshtml" t="Include" />
-            <e p="Supplies.cshtml" t="Include" />
-            <e p="Users.cshtml" t="Include" />
           </e>
           <e p="Shared" t="Include">
             <e p="_CookieConsentPartial.cshtml" t="Include" />
             <e p="_Layout.cshtml" t="Include" />
             <e p="_ValidationScriptsPartial.cshtml" t="Include" />
             <e p="Error.cshtml" t="Include" />
+          </e>
+          <e p="Supply" t="Include">
+            <e p="AddSupply.cshtml" t="Include" />
+            <e p="Supplies.cshtml" t="Include" />
+          </e>
+          <e p="User" t="Include">
+            <e p="CreateUser.cshtml" t="Include" />
+            <e p="Users.cshtml" t="Include" />
           </e>
         </e>
         <e p="wwwroot" t="Include">

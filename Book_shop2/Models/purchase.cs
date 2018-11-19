@@ -8,5 +8,6 @@ namespace Book_shop2.Models
         public int count { get; set; }
         public int cost { get; set; }
         public string year { get; set; }
+        public int stuff_id { get; set; }
     }
 }

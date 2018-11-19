@@ -32,12 +32,11 @@
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-toggle="dropdown">Пользователи</a>
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Users">Список пользователей</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="CreateUser">Добавить пользователя</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="User" asp-action="Users">Список пользователей</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="User" asp-action="CreateUser">Добавить пользователя</a>
                         </div>
                     </li>
                 </ul>

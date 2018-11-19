@@ -2,10 +2,15 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Book_shop2.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using Microsoft.EntityFrameworkCore.Scaffolding.Internal;
+using Book_shop2.Helpers;
+using Remotion.Linq.Parsing.ExpressionVisitors.Transformation.PredefinedTransformations;
 
 namespace Book_shop2.Controllers
 {
@@ -22,157 +27,7 @@ namespace Book_shop2.Controllers
         {
             return View(db.Books.ToList());
         }
-
-        // Список книг
-        public IActionResult Books()
-        {
-            return View(db.Books.ToList());
-        }
         
-        // Добавление книги
-        [HttpGet]
-        public IActionResult CreateBook()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult CreateBook(book Book)
-        {
-            db.Books.Add(Book);
-            db.SaveChanges();
-            return View();
-        }
-
-        // Список пользователей
-        public IActionResult Users()
-        {
-            return View(db.Users.ToList());
-        }
-
-        // Добавление пользователя
-        [HttpGet]
-        public IActionResult CreateUser()
-        {
-            return View();
-        }
-
-        
-        [HttpPost]
-        public IActionResult CreateUser(user User)
-        {
-            db.Users.Add(User);
-            db.SaveChanges();
-            return RedirectToAction("Users");
-        }
-        
-        // Список покупателей
-        public IActionResult Clients()
-        {
-            return View(db.Clients.ToList());
-        }
-        
-        // Добавление покупателя
-        [HttpGet]
-        public IActionResult AddClient()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult AddClient(client Client)
-        {
-            db.Clients.Add(Client);
-            db.SaveChanges();
-            return View();
-        }
-        
-        // Список покупок
-        public IActionResult Purchases()
-        {
-            //var book_name = db.Query<db>("select b.name from db.book b, db.purchase p where b.id == p.book_id").ToList();
-            return View(db.Purchases.ToList());
-        }
-        
-        // Оформление покупки
-        [HttpGet]
-        public IActionResult CreatePurchase()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult CreatePurchase(purchase Purchase)
-        {
-            db.Purchases.Add(Purchase);
-            db.SaveChanges();
-            return View();
-        }
-        
-        // Список заказов
-        public IActionResult Orders()
-        {
-            var books = "select b.name from db.Books b, db.Orders o where b.id == o.book_id";
-            //var row = db.QuerySingle(books);
-            return View(db.Orders.ToList());
-        }
-        
-        // Добавление заказа
-        [HttpGet]
-        public IActionResult CreateOrder()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult CreateOrder(order Order)
-        {
-            db.Orders.Add(Order);
-            db.SaveChanges();
-            return View();
-        }
-        
-        // Список поставщиков
-        public IActionResult Providers()
-        {
-            return View(db.Providers.ToList());
-        }
-        
-        // Добавление поставщика
-        [HttpGet]
-        public IActionResult CreateProvider()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult CreateProvider(provider Provider)
-        {
-            db.Providers.Add(Provider);
-            db.SaveChanges();
-            return View();
-        }
-        
-        // Список поставок
-        public IActionResult Supplies()
-        {
-            return View(db.Supplies.ToList());
-        }
-        
-        // Добавление поставки
-        [HttpGet]
-        public IActionResult AddSupply()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult AddSupply(supply Supply)
-        {
-            db.Supplies.Add(Supply);
-            db.SaveChanges();
-            return View();
-        }
             
         public IActionResult About()
         {
@@ -181,10 +36,25 @@ namespace Book_shop2.Controllers
             return View();
         }
 
-        public IActionResult Contact()
+        // Статистика по работникам книжного магазина
+        public IActionResult Statistics()
         {
-            //ViewData["Message"] = "Your contact page.";
-
+            int countAllOrders = db.Orders.Count();
+            var statStuff = from u in db.Users
+                join o in db.Orders on u.Id equals o.Stuff_id
+                join p in db.Purchases on u.Id equals p.stuff_id
+                select new SqlRequestStatistics()
+                {
+                    Name = u.Name,
+                    PurchasesCount = (from pp in db.Users select pp.Id).Count(),
+                    OrdersCount = (from oo in db.Orders select oo.Id).Count(),
+                    //OrdersCount = db.Orders.Count(),
+                    OrdersPercent = (from oo in db.Orders select oo.Id).Count() / countAllOrders * 100
+                    //OrdersPercent = db.Orders.Count() / countAllOrders * 100
+                };
+                
+            ViewBag.StatOrdersStuff = statStuff;
+            
             return View();
         }
 

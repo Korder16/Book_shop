@@ -1,0 +1,36 @@
+@model Book_shop2.Models.provider
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 style="display: flex; justify-content: center">Новый поставщик</h2>
+<div style="display: flex; justify-content: center; align-items: center">
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.Name, "Название поставщика")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.Name)
+        ;
+        <br/><br/>
+        @Html.LabelFor(model => model.City, "Город")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.City)
+        
+        <br/><br/>
+        @Html.LabelFor(model => model.Phone, "Телефон")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.Phone)
+        ;
+        <br/><br/>
+        @Html.LabelFor(model => model.Email, "Электронная почта")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.Email)
+        ;
+        <br/>
+        <input type="submit" class="btn btn-primary" value="Добавить"/>                                                        
+    }
+</div>

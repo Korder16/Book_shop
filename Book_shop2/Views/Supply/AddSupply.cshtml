@@ -1,0 +1,49 @@
+@model Book_shop2.Models.supply
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 style="display: flex; justify-content: center">Добавление поставки</h2>
+<div style="display: flex; justify-content: center; align-items: center">
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.Provider_id, "Поставщик")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.Provider_id)
+        ;
+        <br/><br/>
+        @Html.LabelFor(model => model.Book_id, "Книга")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.Book_id)
+        
+        <br/><br/>
+        @Html.LabelFor(model => model.Count, "Количество")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.Count)
+        ;
+        <br/><br/>
+        @Html.LabelFor(model => model.Date, "Дата поставки")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.Date)
+        ;
+        <br/><br/>
+        @Html.LabelFor(model => model.Price, "Цена")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.Price)
+        ;
+        <br/><br/>
+        @Html.LabelFor(model => model.Cost, "Стоимость")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.Cost)
+        ;
+        <br/>
+        
+        <input type="submit" class="btn btn-primary" value="Добавить"/>                                                        
+    }
+</div>

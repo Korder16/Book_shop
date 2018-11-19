@@ -1,0 +1,35 @@
+@model IEnumerable<Book_shop2.Models.provider>
+@{
+    //ViewData["Title"] = "Home Page";
+}
+
+<html>
+<head>
+    <title>Список поставщиков</title>
+</head>
+<body>
+<div>
+    <h3>Поставщики</h3>
+</div>
+<div style="position: fixed; top: 67px; right: 200px;">
+    <a href="../Home/CreateProvider" type="button" class="btn btn-success">Добавить нового поставщика</a>
+</div>
+<table class="table table-striped">
+    <tr>
+        <td>Название</td>
+        <td>Город</td>
+        <td>Телефон</td>
+        <td>Эл. почта</td>
+    </tr>
+    @foreach (var provider in Model)
+    {
+        <tr>
+            <td>@provider.Name</td>
+            <td>@provider.City</td>
+            <td>@provider.Phone</td>
+            <td>@provider.Email</td>
+        </tr>
+    }
+</table>
+</body>
+</html>

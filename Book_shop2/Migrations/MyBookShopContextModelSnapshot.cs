@@ -109,6 +109,8 @@ namespace Book_shop2.Migrations
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Date");
+
                     b.Property<int>("book_id");
 
                     b.Property<int>("cost");
@@ -116,6 +118,8 @@ namespace Book_shop2.Migrations
                     b.Property<int>("count");
 
                     b.Property<int>("price");
+
+                    b.Property<int>("stuff_id");
 
                     b.Property<string>("year");
 

@@ -1,0 +1,37 @@
+@model IEnumerable<Book_shop2.Models.book>
+@{
+    //ViewData["Title"] = "Home Page";
+}
+
+<html>
+<head>
+    <title>Список книг</title>
+</head>
+<body>
+<div>
+    <h3>Книги</h3>
+</div>
+<div style="position: fixed; top: 67px; right: 200px;">
+    <a href="../Book/CreateBook" type="button" class="btn btn-success">Добавить новую книгу</a>
+</div>
+<table class="table table-striped">
+    <tr>
+        <td>Название</td>
+        <td>Автор</td>
+        <td>Жанр</td>
+        <td>Цена</td>
+        <td>Год</td>
+    </tr>
+    @foreach (var book in Model)
+    {
+        <tr>
+            <td>@book.name</td>
+            <td>@book.author</td>
+            <td>@book.genre</td>
+            <td>@book.price</td>
+            <td>@book.year</td>
+        </tr>
+    }
+</table>
+</body>
+</html>

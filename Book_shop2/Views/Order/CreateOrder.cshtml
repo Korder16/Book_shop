@@ -1,0 +1,73 @@
+@model Book_shop2.Models.order
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2 style="display: flex; justify-content: center">Новый заказ</h2>
+<div style="display: flex; justify-content: center; align-items: center">
+    @using (Html.BeginForm())
+    {
+        @Html.LabelFor(model => model.Book_id, "Название книги")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.Book_id)
+        ;
+        <br/><br/>
+        @Html.LabelFor(model => model.Customer_id, "Клиент")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.Customer_id)
+        
+        <br/><br/>
+        @Html.LabelFor(model => model.Stuff_id, "Сотрудник")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.Stuff_id)
+        ;
+        <br/><br/>
+        @Html.LabelFor(model => model.Date_on, "Дата заказа")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.Date_on)
+        ;
+        <br/><br/>
+        @Html.LabelFor(model => model.Date_to, "Дата доставки")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.Date_to)
+        ;
+        <br/><br/>
+        @Html.LabelFor(model => model.Count, "Количество")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.Count)
+        ;
+        <br/><br/>
+        @Html.LabelFor(model => model.Prise, "Цена")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.Prise)
+        ;
+        <br/><br/>
+        @Html.LabelFor(model => model.Cost, "Стоимость")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.Cost)
+        ;
+        <br/><br/>
+        @Html.LabelFor(model => model.Status, "Cтатус")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.Status)
+        ;
+        <br/><br/>
+        @Html.LabelFor(model => model.Courier_name, "Курьер")
+        ;
+        <br/>
+        @Html.EditorFor(model => model.Courier_name)
+        ;
+        <br/>
+        
+        <input type="submit" class="btn btn-primary" value="Добавить"/>                                                        
+    }
+</div>

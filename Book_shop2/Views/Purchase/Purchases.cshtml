@@ -1,0 +1,38 @@
+@model IEnumerable<Book_shop2.Models.purchase>
+
+<html>
+<head>
+    <title>Список продаж</title>
+</head>
+<body>
+<div>
+    <h3>Продажи</h3>
+</div>
+<div style="position: fixed; top: 67px; right: 200px;">
+    <a href="../Purchase/CreatePurchase" type="button" class="btn btn-success">Оформить покупку</a>
+</div>
+<table class="table table-striped">
+    <tr>
+        <td>Книга</td>
+        <td>Автор</td>
+        <td>Цена</td>
+        <td>Количество</td>
+        <td>Стоимость</td>
+        <td>Работник</td>
+        <td>Дата</td>
+    </tr>
+    @foreach (var purchase in @ViewBag.ListPurchases)
+    {
+        <tr>
+            <td>@purchase.Name</td>
+            <td>@purchase.Author</td>
+            <td>@purchase.Price</td>
+            <td>@purchase.Count</td>
+            <td>@purchase.Cost</td>
+            <td>@purchase.User</td>
+            <td>@purchase.Date</td>
+        </tr>
+    }
+</table>
+</body>
+</html>
