@@ -2,12 +2,14 @@
 @model IEnumerable<Book_shop2.Models.book>
 @{
     //ViewData["Title"] = "Home Page";
-    var SelectQuery = "SELECT * FROM Books ORDER BY Name";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
+
 
 <html>
 <head>
     <title>Книжный магазин "Книголюб"</title>
+    <script src="lib/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
 <h3>Книги</h3>
@@ -18,7 +20,6 @@
         <td>Жанр</td>
         <td>Цена</td>
         <td>Год</td>
-        <td></td>
     </tr>
     @foreach (var book in Model)
     {
@@ -28,10 +29,8 @@
             <td>@book.genre</td>
             <td>@book.price</td>
             <td>@book.year</td>
-            <td><a href="~/Home/Buy/@book.id">Купить</a></td>
         </tr>
     }
 </table>
-
 </body>
 </html>

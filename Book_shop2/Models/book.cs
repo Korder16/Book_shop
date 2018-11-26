@@ -1,12 +1,26 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace Book_shop2.Models
 {
     public class book
     {
         public int id { get; set; }
+        
+        [Required(ErrorMessage ="Не указано название книги")]
         public string name { get; set; }
+        
+        [Required(ErrorMessage ="Не указано имя автора")]
         public string author { get; set; }
+        
+        [Range(0, 100000)]
+        [Required(ErrorMessage ="Не указана цена")]
         public int price { get; set; }
+        
+        [Required(ErrorMessage ="Не указан жанр книги")]
         public string genre { get; set; }
+        
+        [Range(0, 2018)]
+        [Required(ErrorMessage ="Не указан год издания")]
         public int year { get; set; }
     }
 }

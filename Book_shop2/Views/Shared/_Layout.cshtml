@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Книга+</title>
-
+    
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
@@ -30,14 +30,23 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Statistics">Домашняя страница</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-toggle="dropdown">Пользователи</a>
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Поставщики</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" asp-area="" asp-controller="Provider" asp-action="Providers">Список поставщиков</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Provider" asp-action="CreateProvider">Добавить поставщика</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Пользователи</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" asp-area="" asp-controller="User" asp-action="Users">Список пользователей</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="User" asp-action="CreateUser">Добавить пользователя</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Account" asp-action="Register">Добавить пользователя</a>
                         </div>
+                    </li>
+                    <li class="nav justify-content-end">
+                        <a asp-area="" asp-controller="Account" asp-action="Logout">Выйти</a>
                     </li>
                 </ul>
             </div>
@@ -46,13 +55,13 @@
 
     <partial name="_CookieConsentPartial" />
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            
-        </footer>
-    </div>
+<div class="container body-content">
+    @RenderBody()
+    <hr/>
+    <footer>
+
+    </footer>
+</div>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>

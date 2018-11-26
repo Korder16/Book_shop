@@ -1,5 +1,6 @@
 using System.Linq;
 using Book_shop2.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Book_shop2.Controllers
@@ -14,6 +15,7 @@ namespace Book_shop2.Controllers
         }
         
         // Список поставщиков
+        [Authorize(Roles = "Администратор")]
         public IActionResult Providers()
         {
             return View(db.Providers.ToList());
@@ -21,17 +23,27 @@ namespace Book_shop2.Controllers
         
         // Добавление поставщика
         [HttpGet]
+        [Authorize(Roles = "Администратор")]
         public IActionResult CreateProvider()
         {
             return View();
         }
 
         [HttpPost]
+        [Authorize(Roles = "Администратор")]
         public IActionResult CreateProvider(provider Provider)
         {
-            db.Providers.Add(Provider);
-            db.SaveChanges();
-            return View();
+            if (ModelState.IsValid)
+            {
+                db.Providers.Add(Provider);
+                db.SaveChanges();
+                return RedirectToAction("Providers", "Provider");
+            } 
+            else
+            {
+                ModelState.AddModelError("","Некорректные даные");
+                return View(Provider);
+            }
         }
     }
 }

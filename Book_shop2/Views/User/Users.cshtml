@@ -1,6 +1,8 @@
-@using Microsoft.AspNetCore.Rewrite.Internal.ApacheModRewrite
-
-
+@using Microsoft.CodeAnalysis.CSharp.Syntax
+@model IEnumerable<Book_shop2.Models.user>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 <html>
 <head>
     <title>Список пользователей</title>
@@ -10,7 +12,7 @@
     <h3>Пользователи</h3>
 </div>
 <div style="position: fixed; top: 67px; right: 200px;">
-    <a href="../Home/CreateUser" type="button" class="btn btn-success">Добавить нового пользователя</a>
+    <a href="../Account/Register" type="button" class="btn btn-success">Добавить нового пользователя</a>
 </div>
 <table class="table table-striped">
     <tr>
@@ -18,14 +20,23 @@
         <td>Должность</td>
         <td>Состояние</td>
         <td>Эл. почта</td>
+        <td></td>
     </tr>
-    @foreach (var user in @ViewBag.User)
+    @foreach (var user in Model)
     {
         <tr>
-            <td>@user.Name</td>
-            <td>@user.Role</td>
-            <td>@user.Activity</td>
-            <td>@user.Email</td>
+            <td><p>@user.Name</p></td>
+            @if (user.RoleId == 1)
+            {
+                <td><p>Администратор</p></td>
+            }
+            else
+            {
+                <td><p>Работник магазина</p></td>
+            }
+            <td><p>@user.Activity</p></td>
+            <td><p>@user.Email</p></td>
+            <td><p><a href="/User/EditUser/@user.Id" class="btn btn-primary">Редактировать</a></p></td>
         </tr>
     }
 </table>

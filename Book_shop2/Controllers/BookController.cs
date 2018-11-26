@@ -1,6 +1,8 @@
 using System.Linq;
 using Book_shop2.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+
 
 namespace Book_shop2.Controllers
 {
@@ -14,6 +16,7 @@ namespace Book_shop2.Controllers
         }
         
         // Список книг
+        [Authorize(Roles = "Работник магазина")]
         public IActionResult Books()
         {
             return View(db.Books.ToList());
@@ -21,12 +24,15 @@ namespace Book_shop2.Controllers
         
         // Добавление книги
         [HttpGet]
+        [Authorize(Roles = "Работник магазина")]
         public IActionResult CreateBook()
         {
+            ViewBag.Books = db.Books.ToList();
             return View();
         }
 
         [HttpPost]
+        [Authorize(Roles = "Работник магазина")]
         public IActionResult CreateBook(book Book)
         {
             db.Books.Add(Book);

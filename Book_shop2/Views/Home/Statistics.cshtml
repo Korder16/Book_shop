@@ -2,8 +2,7 @@
 @model IEnumerable<user>
 
 @{
-    //ViewBag.Uzers;
-    //ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <html>
@@ -22,13 +21,37 @@
         <td>Количество заказов</td>
         <td>Процент успешных заказов, %</td>
     </tr>
-    @foreach (var stat in @ViewBag.StatOrdersStuff)
+    @foreach (var statistics in ViewBag.StatOrdersStuff)
     {
         <tr>
-            <td>@stat.Name</td>
-            <td>@stat.PurchasesCount</td>
-            <td>@stat.OrdersCount</td>
-            <td>@stat.OrdersPercent</td>
+            <td>@statistics.Name</td>
+            <td>@statistics.PurchasesCount</td>
+            <td>@statistics.OrdersCount</td>
+            <td>@statistics.OrdersPercent</td>
+        </tr>
+    }
+</table>
+
+<div>
+    <h3>Статистика по аптеке</h3>
+</div>
+
+<table class="table table-striped">
+    <tr>
+        <td>Количество продаж</td>
+        <td>Количество заказов</td>
+        <td>Процент выполнения заказов, %</td>
+        <td>Прибыль</td>
+        <td>Выручка</td>
+    </tr>
+    
+    @foreach (var statistics in ViewBag.StatOrdersStuff)
+    {
+        <tr>
+            <td>@statistics.Name</td>
+            <td>@statistics.PurchasesCount</td>
+            <td>@statistics.OrdersCount</td>
+            <td>@statistics.OrdersPercent</td>
         </tr>
     }
 </table>

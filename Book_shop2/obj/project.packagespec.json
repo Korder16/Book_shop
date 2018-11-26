@@ -26,10 +26,6 @@
   "frameworks": {
     "netcoreapp2.1": {
       "dependencies": {
-        "Dapper": {
-          "target": "Package",
-          "version": "[1.50.5, )"
-        },
         "Microsoft.AspNetCore.App": {
           "suppressParent": "All",
           "target": "Package",
@@ -58,6 +54,10 @@
           "target": "Package",
           "version": "[2.1.0, )",
           "autoReferenced": true
+        },
+        "NUnit": {
+          "target": "Package",
+          "version": "[3.11.0, )"
         },
         "Npgsql.EntityFrameworkCore.PostgreSQL": {
           "target": "Package",

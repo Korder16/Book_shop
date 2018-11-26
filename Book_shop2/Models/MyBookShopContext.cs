@@ -1,12 +1,12 @@
 //using Microsoft.AspNetCore.Identity;
+
+using System.Globalization;
 using Microsoft.EntityFrameworkCore;
 
 namespace Book_shop2.Models
 {
     public class MyBookShopContext : DbContext
     {
-        public MyBookShopContext(DbContextOptions<MyBookShopContext> options) : base(options) { }
-        
         public DbSet<book> Books { get; set; }
         public DbSet<purchase> Purchases { get; set; }
         public DbSet<user> Users { get; set; }
@@ -15,5 +15,11 @@ namespace Book_shop2.Models
         public DbSet<stock> Stock { get; set; }
         public DbSet<supply> Supplies { get; set; }
         public DbSet<provider> Providers { get; set; }
+        public DbSet<role> Roles { get; set; }
+        
+        public MyBookShopContext(DbContextOptions<MyBookShopContext> options) : base(options)
+        {
+            Database.EnsureCreated();
+        }
     }
 }

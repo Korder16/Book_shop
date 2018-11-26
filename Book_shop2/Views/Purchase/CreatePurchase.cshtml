@@ -1,49 +1,98 @@
-@model Book_shop2.Models.purchase
+@using Book_shop2.Models
+@model Book_shop2.ViewModels.PurchaseModel
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
-<h2 style="display: flex; justify-content: center">Оформление покупки</h2>
-<div style="display: flex; justify-content: center; align-items: center">
+
+<style>
+    body {
+        background-color: #f5f5f5;
+    }
+    .form-signin {
+        width: 100%;
+        max-width: 330px;
+        padding: 15px;
+        margin: auto;
+    }
+</style>
+<body class="text-center">
+<h1>Оформление покупки</h1>
+<div class="form-signin">
     @using (Html.BeginForm())
     {
-        @Html.LabelFor(model => model.book_id, "Книга")
-        ;
-        <br/>
-        @Html.EditorFor(model => model.book_id)
-        ;
-        <br/><br/>
-        @Html.LabelFor(model => model.price, "Цена")
-        ;
-        <br/>
-        @Html.EditorFor(model => model.price)
         
-        <br/><br/>
-        @Html.LabelFor(model => model.count, "Количество")
-        ;
-        <br/>
-        @Html.EditorFor(model => model.count)
-        ;
-        <br/><br/>
-        @Html.LabelFor(model => model.cost, "Стоимость")
-        ;
-        <br/>
-        @Html.EditorFor(model => model.cost)
+        @Html.ValidationSummary(true)
         
-        <br/><br/>
-        @Html.LabelFor(model => model.stuff_id, "Пользователь")
-        ;
-        <br/>
-        @Html.EditorFor(model => model.stuff_id)
-        ;
-        <br/><br/>
-        @Html.LabelFor(model => model.year, "Дата покупки")
-        ;
-        <br/>
-        @Html.EditorFor(model => model.year)
-        ;
-        <br/>
         
-        <input type="submit" class="btn btn-primary" value="Добавить"/>                                                        
-    }
+        // Название книги
+        <div class="form-group">
+            @Html.LabelFor(model => model.Book_id, "Название книги");
+            @Html.DropDownListFor(model => model.Book_id, new SelectList(Model.Books, "Value", "Text"), new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.Book_id)
+        </div>
+        
+        
+        // Цена книги
+        <div class="form-group">
+            @Html.LabelFor(model => model.price, "Цена")
+            @Html.TextBoxFor(model => model.price, new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.price)
+        </div>
+        
+        
+        // Количество книг
+        <div class="form-group">
+            @Html.LabelFor(model => model.count, "Количество")
+            @Html.TextBoxFor(model => model.count, new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.count)
+        </div>
+        
+        
+        // Стоимость покупки
+        <div class="form-group">
+            @Html.LabelFor(model => model.cost, "Стоимость")
+            @Html.TextBoxFor(model => model.cost, new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.cost)
+        </div>
+        
+        
+        // Дата покупки
+        <div class="form-group">
+            @Html.LabelFor(model => model.year, "Дата покупки")
+            @Html.TextBoxFor(model => model.year, new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.year)
+        </div>
+        
+        
+        // Продавец
+        <div class="form-group">
+            @Html.LabelFor(model => model.stuff_id, "Продавец");
+            @Html.DropDownListFor(model => model.stuff_id, new SelectList(Model.Users, "Value", "Text"), new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.stuff_id)
+        </div>
+        
+        <div class="form-group">
+            <input type="submit" class="btn btn-success btn-block" value="Оформить покупку"/>
+        </div>                                                           
+    }    
 </div>
+
+@section scripts{
+
+    <environment names="Development">
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"
+                asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"
+                asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+        </script>
+    </environment>
+}
+</body>

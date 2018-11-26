@@ -1,42 +1,91 @@
+@using Book_shop2.Models
+@using Microsoft.AspNetCore.Mvc.Internal
 @model Book_shop2.Models.book
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
-<h2 style="display: flex; justify-content: center">Новая книга</h2>
-<div style="display: flex; justify-content: center; align-items: center">
+<style>
+    body {
+        background-color: #f5f5f5;
+    }
+    .form-signin {
+        width: 100%;
+        max-width: 330px;
+        padding: 15px;
+        margin: auto;
+    }
+</style>
+
+<body class="text-center">
+<h1>Новая книга</h1>
+<div class="form-signin">
     @using (Html.BeginForm())
     {
-        @Html.LabelFor(model => model.name, "Название книги")
-        ;
-        <br/>
-        @Html.EditorFor(model => model.name)
-        ;
-        <br/><br/>
-        @Html.LabelFor(model => model.author, "Автор")
-        ;
-        <br/>
-        @Html.EditorFor(model => model.author)
         
-        <br/><br/>
-        @Html.LabelFor(model => model.genre, "Жанр")
-        ;
-        <br/>
-        @Html.EditorFor(model => model.genre)
-        ;
-        <br/><br/>
-        @Html.LabelFor(model => model.price, "Цена")
-        ;
-        <br/>
-        @Html.EditorFor(model => model.price)
-        ;
-        <br/><br/>
-        @Html.LabelFor(model => model.year, "Год")
-        ;
-        <br/>
-        @Html.EditorFor(model => model.year)
-        ;
-        <br/>
-        <input type="submit" class="btn btn-primary" value="Добавить"/>                                                        
+        @Html.ValidationSummary(true)
+        
+        // Название книги
+        <div class="form-group">
+            @Html.LabelFor(model => model.name, "Название книги")
+            @Html.TextBoxFor(model => model.name, new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.name)
+        </div>
+        
+        
+        // Автор книги
+        <div class="form-group">
+            @Html.LabelFor(model => model.author, "Автор")<br/>
+            @Html.TextBoxFor(model => model.author, new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.author)
+        </div>
+        
+        
+        // Жанр книги
+        <div class="form-group">
+            @Html.LabelFor(model => model.genre, "Жанр")
+            @Html.TextBoxFor(model => model.genre, new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.genre)
+        </div>
+        
+        
+        // Цена книги
+        <div class="form-group">
+            @Html.LabelFor(model => model.price, "Цена")
+            @Html.TextBoxFor(model => model.price, new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.price)
+        </div>
+        
+        
+        // Год издания
+        <div class="form-group">
+            @Html.LabelFor(model => model.year, "Год")
+            @Html.TextBoxFor(model => model.year, new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.year)
+        </div>
+        
+        
+        <div class="form-group">
+            <input type="submit" class="btn btn-success btn-block" value="Добавить книгу"/>
+        </div>                                                        
     }
 </div>
+
+@section scripts{
+
+    <environment names="Development">
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"
+                asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"
+                asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+        </script>
+    </environment>
+}
+</body>

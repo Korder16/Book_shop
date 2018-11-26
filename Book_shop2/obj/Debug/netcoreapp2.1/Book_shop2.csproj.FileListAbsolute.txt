@@ -14,8 +14,6 @@ C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Book_
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Book_shop2.TagHelpers.input.cache
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Book_shop2.TagHelpers.output.cache
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Book_shop2.RazorCoreGenerate.cache
-C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Home\About.g.cshtml.cs
-C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Home\Contact.g.cshtml.cs
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
@@ -30,10 +28,10 @@ C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Book_
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Book_shop2.dll
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Book_shop2.pdb
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Book_shop2.csproj.CopyComplete
-C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Home\Login.g.cshtml.cs
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Home\Statistics.g.cshtml.cs
-C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\User\CreateUser.g.cshtml.cs
-C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\User\Users.g.cshtml.cs
+C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_LayoutUser.g.cshtml.cs
+C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Account\Login.g.cshtml.cs
+C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Account\Register.g.cshtml.cs
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Book\Books.g.cshtml.cs
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Book\CreateBook.g.cshtml.cs
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Client\AddClient.g.cshtml.cs
@@ -46,3 +44,5 @@ C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Purchase\Purchases.g.cshtml.cs
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Supply\AddSupply.g.cshtml.cs
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Supply\Supplies.g.cshtml.cs
+C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\User\Users.g.cshtml.cs
+C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\User\EditUser.g.cshtml.cs

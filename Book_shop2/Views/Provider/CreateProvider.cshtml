@@ -3,34 +3,103 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<h2 style="display: flex; justify-content: center">Новый поставщик</h2>
-<div style="display: flex; justify-content: center; align-items: center">
-    @using (Html.BeginForm())
-    {
-        @Html.LabelFor(model => model.Name, "Название поставщика")
-        ;
-        <br/>
-        @Html.EditorFor(model => model.Name)
-        ;
-        <br/><br/>
-        @Html.LabelFor(model => model.City, "Город")
-        ;
-        <br/>
-        @Html.EditorFor(model => model.City)
-        
-        <br/><br/>
-        @Html.LabelFor(model => model.Phone, "Телефон")
-        ;
-        <br/>
-        @Html.EditorFor(model => model.Phone)
-        ;
-        <br/><br/>
-        @Html.LabelFor(model => model.Email, "Электронная почта")
-        ;
-        <br/>
-        @Html.EditorFor(model => model.Email)
-        ;
-        <br/>
-        <input type="submit" class="btn btn-primary" value="Добавить"/>                                                        
+<style>
+    body {
+        background-color: #f5f5f5;
     }
+    .form-signin {
+        width: 100%;
+        max-width: 330px;
+        padding: 15px;
+        margin: auto;
+    }
+</style>
+<body class="text-center">
+<h2 style="display: flex; justify-content: center">Новый поставщик</h2>
+<div class="form-signin">
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    
+    // Редактирование имени пользователя
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name, "Имя пользователя")
+    
+        <br/>
+        @Html.TextBoxFor(model => model.Name, new {@class="form-control"})
+    
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+    
+    
+    // Редактирование пароля 
+    <div class="form-group">
+        @Html.LabelFor(model => model.City, "Пароль")
+        
+        <br/>
+        @Html.TextBoxFor(model => model.City, new {@class="form-control"})
+    
+        @Html.ValidationMessageFor(model => model.City)
+    </div>
+    
+    
+    // Редактирование электронной почты
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email, "Электронная почта")
+        
+        <br/>
+        @Html.TextBoxFor(model => model.Email, new {@class="form-control"})
+        
+        @Html.ValidationMessageFor(model => model.Email)
+    </div>
+    
+    
+    // Редактирование статуса
+    <div class="form-group">
+        @Html.LabelFor(model => model.Phone, "Статус")
+        
+        <br/>
+        @Html.TextBoxFor(model => model.Phone, new {@class="form-control"})
+        
+        @Html.ValidationMessageFor(model => model.Phone)
+        
+    </div>
+    
+    
+    // Редактирование должности
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email, "Должность")
+        
+        <br/>
+        @Html.TextBoxFor(model => model.Email, new {@class="form-control"})
+        
+        @Html.ValidationMessageFor(model => model.Email)
+    
+        <br/>
+    </div>
+    
+    <div class="form-group">
+        <input type="submit" class="btn btn-success btn-block" value="Добавить"/>
+    </div>
+}
 </div>
+
+@section scripts{
+
+    <environment names="Development">
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"
+                asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"
+                asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+        </script>
+    </environment>
+}
+
+</body>

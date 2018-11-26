@@ -1,0 +1,102 @@
+@model Book_shop2.ViewModels.RegisterModel
+<head>
+    <style>
+        body {
+            background-color: #f5f5f5;
+        }
+        .form-signin {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: auto;
+        }
+    </style>
+</head> 
+<body class="text-center">
+<h1>Регистрация</h1>
+<div class="form-signin">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+    
+        // Имя пользователя
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, "Имя пользователя")
+    
+            <br/>
+            @Html.TextBoxFor(model => model.Name, new {@class="form-control"})
+    
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+    
+    
+        // Пароль
+        <div class="form-group">
+            @Html.LabelFor(model => model.Password, "Пароль")
+        
+            <br/>
+            @Html.PasswordFor(model => model.Password, new {@class="form-control"})
+    
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+        
+        
+        // Повторение пароля
+        <div class="form-group">
+            @Html.LabelFor(model => model.ConfirmPassword, "Повторите пароль")
+        
+            <br/>
+            @Html.PasswordFor(model => model.ConfirmPassword, new {@class="form-control"})
+    
+            @Html.ValidationMessageFor(model => model.ConfirmPassword)
+        </div>
+    
+        
+        // Электронная почта
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, "Электронная почта")
+        
+            <br/>
+            @Html.TextBoxFor(model => model.Email, new {@class="form-control"})
+        
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+    
+    
+        // Статус
+        <div class="form-group">
+            @Html.LabelFor(model => model.Activity, "Статус")
+        
+            <br/>
+            @Html.DropDownListFor(model => model.Activity, new SelectList(new string[] {"Работает", "Не работает"}), 
+                new {@class="form-control"})
+        
+            @Html.ValidationMessageFor(model => model.Activity)
+        
+        </div>
+    
+    
+        <div class="form-group">
+            <input type="submit" class="btn btn-success btn-block" value="Добавить пользователя"/>
+        </div>
+    }
+</div>
+
+@section scripts{
+
+    <environment names="Development">
+        <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"
+                asp-fallback-src="~/lib/jquery-validation/dist/jquery.validate.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.6/jquery.validate.unobtrusive.min.js"
+                asp-fallback-src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.validator && window.jQuery.validator.unobtrusive">
+        </script>
+    </environment>
+}
+</body>

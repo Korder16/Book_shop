@@ -1,6 +1,7 @@
 @model IEnumerable<Book_shop2.Models.order>
 @{
     //ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
 
 <html>
@@ -12,7 +13,7 @@
     <h3>Заказы</h3>
 </div>
 <div style="position: fixed; top: 67px; right: 200px;">
-    <a href="../Home/CreateOrder" type="button" class="btn btn-success">Добавить заказ</a>
+    <a href="../Order/CreateOrder" type="button" class="btn btn-success">Добавить заказ</a>
 </div>
 <table class="table table-striped">
     <tr>

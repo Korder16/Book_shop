@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Book_shop2.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -34,10 +35,18 @@ namespace Book_shop2
             });
 
 
-            //services.AddMvc().SetCompatibilityVersion(CompatibfilityVersion.Version_2_1);
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddEntityFrameworkNpgsql().AddDbContext<MyBookShopContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("MyBookShopConnection")));
             //services.AddDbContext<MyBookShopContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("MyBookShopConnection")));
+            
+            //установка конфигурации подключения
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options => //CookieAuthentificationOptions
+                {
+                    options.LoginPath= new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                    options.AccessDeniedPath= new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -56,14 +65,17 @@ namespace Book_shop2
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
-                routes.MapRoute("api", "api/get", new {controller = "Home", action = "Index"});
+                routes.MapRoute("api", "api/get", new {controller = "Account", action = "Login"});
+
                 
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Account}/{action=Login}/{id?}");
+                
             });
         }
     }

@@ -12,6 +12,7 @@
         <e p="Bin" t="ExcludeRecursive" />
         <e p="Book_shop2.csproj" t="IncludeRecursive" />
         <e p="Controllers" t="Include">
+          <e p="AccountController.cs" t="Include" />
           <e p="BookController.cs" t="Include" />
           <e p="ClientController.cs" t="Include" />
           <e p="HomeController.cs" t="Include" />
@@ -27,46 +28,39 @@
           <e p="SqlRequestOrder.cs" t="Include" />
           <e p="SqlRequestPurchase.cs" t="Include" />
           <e p="SqlRequestStatistics.cs" t="Include" />
+          <e p="SqlRequestSupplies.cs" t="Include" />
           <e p="SqlRequestTest.cs" t="Include" />
         </e>
         <e p="Migrations" t="Include">
-          <e p="20181028224059_InitialMigration.cs" t="Include" />
-          <e p="20181028224059_InitialMigration.Designer.cs" t="Include" />
-          <e p="20181030101900_NewMigration.cs" t="Include" />
-          <e p="20181030101900_NewMigration.Designer.cs" t="Include" />
-          <e p="20181109120159_AlphaMigration.cs" t="Include" />
-          <e p="20181109120159_AlphaMigration.Designer.cs" t="Include" />
-          <e p="20181111130920_Alpha2Migr.cs" t="Include" />
-          <e p="20181111130920_Alpha2Migr.Designer.cs" t="Include" />
-          <e p="20181111232911_Alpha3Migr.cs" t="Include" />
-          <e p="20181111232911_Alpha3Migr.Designer.cs" t="Include" />
-          <e p="20181112074904_Alpha4Migr.cs" t="Include" />
-          <e p="20181112074904_Alpha4Migr.Designer.cs" t="Include" />
-          <e p="20181112075644_Alpha4.1Migr.cs" t="Include" />
-          <e p="20181112075644_Alpha4.1Migr.Designer.cs" t="Include" />
-          <e p="20181112095953_Alpha5Migr.cs" t="Include" />
-          <e p="20181112095953_Alpha5Migr.Designer.cs" t="Include" />
-          <e p="20181117152138_Alpha6Migration.cs" t="Include" />
-          <e p="20181117152138_Alpha6Migration.Designer.cs" t="Include" />
-          <e p="20181119091218_Alpha7Migr.cs" t="Include" />
-          <e p="20181119091218_Alpha7Migr.Designer.cs" t="Include" />
-          <e p="20181119092230_Beta1Migr.cs" t="Include" />
-          <e p="20181119092230_Beta1Migr.Designer.cs" t="Include" />
-          <e p="20181119092840_Beta2Migr.cs" t="Include" />
-          <e p="20181119092840_Beta2Migr.Designer.cs" t="Include" />
-          <e p="20181119093609_Beta3Migr.cs" t="Include" />
-          <e p="20181119093609_Beta3Migr.Designer.cs" t="Include" />
+          <e p="20181120154251_Beta7Migr.cs" t="Include" />
+          <e p="20181120154251_Beta7Migr.Designer.cs" t="Include" />
+          <e p="20181120171609_Beta8Migr.cs" t="Include" />
+          <e p="20181120171609_Beta8Migr.Designer.cs" t="Include" />
+          <e p="20181120172836_Beta9Migr.cs" t="Include" />
+          <e p="20181120172836_Beta9Migr.Designer.cs" t="Include" />
+          <e p="20181120174840_Beta10Migr.cs" t="Include" />
+          <e p="20181120174840_Beta10Migr.Designer.cs" t="Include" />
+          <e p="20181121095546_Beta11Migr.cs" t="Include" />
+          <e p="20181121095546_Beta11Migr.Designer.cs" t="Include" />
+          <e p="20181121103718_Beta12Migr.cs" t="Include" />
+          <e p="20181121103718_Beta12Migr.Designer.cs" t="Include" />
+          <e p="20181122113945_Beta13Migr.cs" t="Include" />
+          <e p="20181122113945_Beta13Migr.Designer.cs" t="Include" />
+          <e p="20181123075053_Beta14Migr.cs" t="Include" />
+          <e p="20181123075053_Beta14Migr.Designer.cs" t="Include" />
+          <e p="20181123100931_Beta15Migr.cs" t="Include" />
+          <e p="20181123100931_Beta15Migr.Designer.cs" t="Include" />
           <e p="MyBookShopContextModelSnapshot.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
           <e p="book.cs" t="Include" />
           <e p="client.cs" t="Include" />
           <e p="ErrorViewModel.cs" t="Include" />
-          <e p="LoginModel.cs" t="Include" />
           <e p="MyBookShopContext.cs" t="Include" />
           <e p="order.cs" t="Include" />
           <e p="provider.cs" t="Include" />
           <e p="purchase.cs" t="Include" />
+          <e p="role.cs" t="Include" />
           <e p="Stock.cs" t="Include" />
           <e p="supply.cs" t="Include" />
           <e p="User.cs" t="Include" />
@@ -83,9 +77,21 @@
           <e p="launchSettings.json" t="Include" />
         </e>
         <e p="Startup.cs" t="Include" />
+        <e p="ViewModels" t="Include">
+          <e p="EditUserModel.cs" t="Include" />
+          <e p="LoginModel.cs" t="Include" />
+          <e p="OrderModel.cs" t="Include" />
+          <e p="PurchaseModel.cs" t="Include" />
+          <e p="RegisterModel.cs" t="Include" />
+          <e p="SupplyModel.cs" t="Include" />
+        </e>
         <e p="Views" t="Include">
           <e p="_ViewImports.cshtml" t="Include" />
           <e p="_ViewStart.cshtml" t="Include" />
+          <e p="Account" t="Include">
+            <e p="Login.cshtml" t="Include" />
+            <e p="Register.cshtml" t="Include" />
+          </e>
           <e p="Book" t="Include">
             <e p="Books.cshtml" t="Include" />
             <e p="CreateBook.cshtml" t="Include" />
@@ -95,10 +101,7 @@
             <e p="Clients.cshtml" t="Include" />
           </e>
           <e p="Home" t="Include">
-            <e p="About.cshtml" t="Include" />
-            <e p="Contact.cshtml" t="Include" />
             <e p="Index.cshtml" t="Include" />
-            <e p="Login.cshtml" t="Include" />
             <e p="Privacy.cshtml" t="Include" />
             <e p="Statistics.cshtml" t="Include" />
           </e>
@@ -117,6 +120,7 @@
           <e p="Shared" t="Include">
             <e p="_CookieConsentPartial.cshtml" t="Include" />
             <e p="_Layout.cshtml" t="Include" />
+            <e p="_LayoutUser.cshtml" t="Include" />
             <e p="_ValidationScriptsPartial.cshtml" t="Include" />
             <e p="Error.cshtml" t="Include" />
           </e>
@@ -125,7 +129,7 @@
             <e p="Supplies.cshtml" t="Include" />
           </e>
           <e p="User" t="Include">
-            <e p="CreateUser.cshtml" t="Include" />
+            <e p="EditUser.cshtml" t="Include" />
             <e p="Users.cshtml" t="Include" />
           </e>
         </e>
@@ -139,6 +143,7 @@
             <e p="banner1.svg" t="Include" />
             <e p="banner2.svg" t="Include" />
             <e p="banner3.svg" t="Include" />
+            <e p="free_horizontal_on_white_by_logaster.png" t="Include" />
           </e>
           <e p="js" t="Include">
             <e p="site.js" t="Include" />

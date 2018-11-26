@@ -1,11 +1,12 @@
 @model IEnumerable<Book_shop2.Models.book>
 @{
-    //ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
 
 <html>
 <head>
     <title>Список книг</title>
+    <script src="lib/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
 <div>
@@ -22,7 +23,7 @@
         <td>Цена</td>
         <td>Год</td>
     </tr>
-    @foreach (var book in Model)
+    @foreach (var book in @Model)
     {
         <tr>
             <td>@book.name</td>

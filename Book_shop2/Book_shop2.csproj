@@ -5,13 +5,61 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Dapper" Version="1.50.5" />
         <PackageReference Include="Microsoft.AspNetCore.App" />
         <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.0-preview3-35497" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.0-preview3-35497" />
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.1.0-preview1-final" />
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.2.0-preview1" />
+        <PackageReference Include="NUnit" Version="3.11.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Views\Purchase\CreatePurchase.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Purchase\Purchases.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Provider\CreateProvider.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Provider\Providers.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Client\AddClient.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Client\Clients.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Order\CreateOrder.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Order\Orders.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Supply\AddSupply.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Supply\Supplies.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Admin\Provider\CreateProvider.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Admin\Provider\Providers.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Stuff\Client\AddClient.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Stuff\Client\Clients.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Stuff\Order\CreateOrder.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Stuff\Order\Orders.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Stuff\Purchase\CreatePurchase.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Stuff\Purchase\Purchases.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Stuff\Supply\AddSupply.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Stuff\Supply\Supplies.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Book\Books.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Book\CreateBook.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\User\Users.cshtml" />
+      <_ContentIncludedByDefault Remove="Views\Admin\User\Users.cshtml" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <UpToDateCheckInput Remove="Views\Client\AddClient.cshtml" />
+      <UpToDateCheckInput Remove="Views\Client\Clients.cshtml" />
+      <UpToDateCheckInput Remove="Views\Order\CreateOrder.cshtml" />
+      <UpToDateCheckInput Remove="Views\Order\Orders.cshtml" />
+      <UpToDateCheckInput Remove="Views\Supply\AddSupply.cshtml" />
+      <UpToDateCheckInput Remove="Views\Supply\Supplies.cshtml" />
+      <UpToDateCheckInput Remove="Views\Provider\CreateProvider.cshtml" />
+      <UpToDateCheckInput Remove="Views\Provider\Providers.cshtml" />
+      <UpToDateCheckInput Remove="Views\Admin\Provider\CreateProvider.cshtml" />
+      <UpToDateCheckInput Remove="Views\Admin\Provider\Providers.cshtml" />
+      <UpToDateCheckInput Remove="Views\Stuff\Client\AddClient.cshtml" />
+      <UpToDateCheckInput Remove="Views\Stuff\Client\Clients.cshtml" />
+      <UpToDateCheckInput Remove="Views\Stuff\Order\CreateOrder.cshtml" />
+      <UpToDateCheckInput Remove="Views\Stuff\Order\Orders.cshtml" />
+      <UpToDateCheckInput Remove="Views\Stuff\Purchase\CreatePurchase.cshtml" />
+      <UpToDateCheckInput Remove="Views\Stuff\Purchase\Purchases.cshtml" />
+      <UpToDateCheckInput Remove="Views\Stuff\Supply\AddSupply.cshtml" />
+      <UpToDateCheckInput Remove="Views\Stuff\Supply\Supplies.cshtml" />
     </ItemGroup>
 
 </Project>

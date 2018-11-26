@@ -1,7 +1,11 @@
+using System;
 using System.Linq;
 using Book_shop2.Helpers;
 using Book_shop2.Models;
+using Book_shop2.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Book_shop2.Controllers
 {
@@ -15,6 +19,7 @@ namespace Book_shop2.Controllers
         }
         
         // Список заказов
+        [Authorize(Roles = "Работник магазина")]
         public IActionResult Orders()
         {
             var orders = from o in db.Orders
@@ -43,17 +48,69 @@ namespace Book_shop2.Controllers
         
         // Добавление заказа
         [HttpGet]
+        [Authorize(Roles = "Работник магазина")]
         public IActionResult CreateOrder()
         {
-            return View();
+            OrderModel model = new OrderModel();
+            
+            // Заполняем выпадающий список Books книгами
+            model.Books = db.Books.Select(b => new SelectListItem
+            {
+                Text = b.name,
+                Value = b.id.ToString()
+            }).ToList();
+
+            
+            // Заполняем выпадающий список Clients клиентами
+            model.Clients = db.Clients.Select(c => new SelectListItem
+            {
+                Text = c.Name,
+                Value = c.Id.ToString()
+            }).ToList();
+            
+            
+            // Заполняем выпадающие список Users пользователями
+            model.Users = db.Users.Where(u=> u.Activity == "Работает" && u.RoleId == 2).Select(u => new SelectListItem
+            {
+                Text = u.Name,
+                Value = u.Id.ToString()
+            }).ToList();
+            
+            
+            return View(model);
         }
 
         [HttpPost]
-        public IActionResult CreateOrder(order Order)
+        [Authorize(Roles = "Работник магазина")]
+        public IActionResult CreateOrder(OrderModel model)
         {
-            db.Orders.Add(Order);
-            db.SaveChanges();
-            return View();
+            if (ModelState.IsValid)
+            {
+                DateTime now = DateTime.Now;
+                order currentOrder = new order()
+                {
+                    Book_id = model.BookId,
+                    Customer_id = model.CustomerId,
+                    Stuff_id = model.CustomerId,
+                    Date_on = now.ToString("d"),
+                    Date_to = model.DateTo,
+                    Count = model.Count,
+                    Prise = model.Price,
+                    Cost = model.Count * model.Price,
+                    Status = "Не доставлен",
+                    Courier_name = model.Courier
+                };
+                
+                
+                db.Orders.Add(currentOrder);
+                db.SaveChanges();
+                return RedirectToAction("Orders", "Order");
+            }
+            else
+                ModelState.AddModelError("","Некорректные данные");
+            
+            
+            return View(model);
         }
     }
 }

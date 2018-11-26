@@ -1,7 +1,14 @@
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mime;
 using Book_shop2.Helpers;
 using Book_shop2.Models;
+using Book_shop2.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace Book_shop2.Controllers
 {
@@ -15,6 +22,7 @@ namespace Book_shop2.Controllers
         }
         
         // Список покупок
+        [Authorize(Roles = "Работник магазина")]
         public IActionResult Purchases()
         {
             
@@ -39,17 +47,53 @@ namespace Book_shop2.Controllers
         
         // Оформление покупки
         [HttpGet]
+        [Authorize(Roles = "Работник магазина")]
         public IActionResult CreatePurchase()
         {
-            return View();
+            PurchaseModel model = new PurchaseModel();
+            
+            // Заполняем выпадающий список Books книгами
+            model.Books = db.Books.Select(b => new SelectListItem
+            {
+                Text = b.name,
+                Value = b.id.ToString()
+            }).ToList();
+
+            // Заполняем выпадающие список Users пользователями
+            model.Users = db.Users.Select(u => new SelectListItem
+            {
+                Text = u.Name,
+                Value = u.Id.ToString()
+            }).ToList();
+
+            return View(model);
         }
 
         [HttpPost]
-        public IActionResult CreatePurchase(purchase Purchase)
+        [Authorize(Roles = "Работник магазина")]
+        public IActionResult CreatePurchase(PurchaseModel model)
         {
-            db.Purchases.Add(Purchase);
-            db.SaveChanges();
-            return View();
+            if (ModelState.IsValid)
+            {
+                DateTime now = DateTime.Now;
+                
+                purchase currentPurchase = new purchase()
+                {
+                    book_id = model.Book_id,
+                    price =  model.price,
+                    count = model.count,
+                    cost = model.price * model.count,
+                    stuff_id = model.stuff_id,
+                    year = now.ToString("d")
+                };
+                db.Purchases.Add(currentPurchase);
+                db.SaveChanges();
+                return RedirectToAction("Purchases", "Purchase");
+            }
+            else
+                ModelState.AddModelError("","Некорректные данные");
+
+            return View(model);
         }
     }
 }

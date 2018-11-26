@@ -1,6 +1,6 @@
 @model IEnumerable<Book_shop2.Models.supply>
 @{
-    //ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
 
 <html>
@@ -18,19 +18,19 @@
     <tr>
         <td>Поставщик</td>
         <td>Книга</td>
-        <td>Количество</td>
         <td>Дата</td>
         <td>Цена</td>
+        <td>Количество</td>
         <td>Стоимость</td>
     </tr>
-    @foreach (var supply in Model)
+    @foreach (var supply in @ViewBag.Supplies)
     {
         <tr>
-            <td>@supply.Provider_id</td>
-            <td>@supply.Book_id</td>
-            <td>@supply.Count</td>
+            <td>@supply.ProviderName</td>
+            <td>@supply.BookName</td>
             <td>@supply.Date</td>
             <td>@supply.Price</td>
+            <td>@supply.Count</td>
             <td>@supply.Cost</td>
         </tr>
     }
