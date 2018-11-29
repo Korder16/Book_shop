@@ -6,6 +6,7 @@ using Book_shop2.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace Book_shop2.Controllers
 {
@@ -68,6 +69,8 @@ namespace Book_shop2.Controllers
         [Authorize(Roles = "Работник магазина")]
         public IActionResult AddSupply(SupplyModel model)
         {
+            var currentBook = db.Books.First(b => b.id == model.Book_id);
+            
             if (ModelState.IsValid)
             {
                 DateTime now = DateTime.Now;
@@ -82,7 +85,13 @@ namespace Book_shop2.Controllers
                 };
                 
                 db.Supplies.Add(currentSupply);
+                
+                // Увеличиваем количество книг на складе
+                currentBook.count += model.Count;
+                db.Entry(currentBook).State = EntityState.Modified;
+                
                 db.SaveChanges();
+                
                 return RedirectToAction("Supplies", "Supply");
             }
             else

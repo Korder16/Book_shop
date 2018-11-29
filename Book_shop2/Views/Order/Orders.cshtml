@@ -18,7 +18,6 @@
 <table class="table table-striped">
     <tr>
         <td>Книга</td>
-        <td>Жанр</td>
         <td>Автор</td>
         <td>Клиент</td>
         <td>Телефон</td>
@@ -30,12 +29,12 @@
         <td>Стоимость</td>
         <td>Статус</td>
         <td>Курьер</td>
+        <td></td>
     </tr>
     @foreach (var order in @ViewBag.ListOrders)
     {
         <tr>
             <td>@order.Name</td>
-            <td>@order.Genre</td>
             <td>@order.Author</td>
             <td>@order.Client</td>
             <td>@order.Phone</td>
@@ -47,6 +46,7 @@
             <td>@order.Cost</td>
             <td>@order.Status</td>
             <td>@order.Courier_name</td>
+            <td><p><a href="/Order/EditOrder/@order.Id" class="btn btn-primary">Редактировать</a></p></td>
         </tr>
     }
 </table>

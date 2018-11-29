@@ -1,6 +1,3 @@
-using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc.Rendering;
-
 
 namespace Book_shop2.Models
 {

@@ -1,10 +1,9 @@
 @using Book_shop2.Models
-@model Book_shop2.ViewModels.SupplyModel
+@model Book_shop2.ViewModels.EditOrderModel
 
 @{
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
-
 <style>
     body {
         background-color: #f5f5f5;
@@ -17,32 +16,47 @@
     }
 </style>
 <body class="text-center">
-<h1>Новая поставка</h1>
+<h1>Редактирование заказа</h1>
 <div class="form-signin">
     @using (Html.BeginForm())
     {
         
         @Html.ValidationSummary(true)
         
-        
-        // Поставщик
-        <div class="form-group">
-            @Html.LabelFor(model => model.Provider_id, "Поставщик")
-            @Html.DropDownListFor(model => model.Provider_id, new SelectList(Model.Providers, "Value", "Text"), 
-                new {@class="form-control"})
-            @Html.ValidationMessageFor(model => model.Provider_id)
-        </div>
-        
-        
         // Название книги
         <div class="form-group">
-            @Html.LabelFor(model => model.Book_id, "Название книги")
-            @Html.DropDownListFor(model => model.Book_id, new SelectList(Model.Books, "Value", "Text"), 
+            @Html.LabelFor(model => model.BookId, "Название книги")
+            @Html.DropDownListFor(model => model.BookId, new SelectList(Model.Books, "Value", "Text"), 
                 new {@class="form-control"})
-            @Html.ValidationMessageFor(model => model.Book_id)
+            @Html.ValidationMessageFor(model => model.BookId)
         </div>
         
-       
+        // Клиент
+        <div class="form-group">
+            @Html.LabelFor(model => model.CustomerId, "Имя клиента")
+            @Html.DropDownListFor(model => model.CustomerId, new SelectList(Model.Clients, "Value", "Text"), 
+                new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.CustomerId)
+        </div>
+        
+        
+        // Продавец
+        <div class="form-group">
+            @Html.LabelFor(model => model.StuffId, "Имя пользователя")
+            @Html.DropDownListFor(model => model.StuffId, new SelectList(Model.Users, "Value", "Text"), 
+                new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.StuffId)
+        </div>
+        
+        
+        // Дата доставки
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateTo, "Дата доставки")
+            @Html.TextBoxFor(model => model.DateTo, new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.DateTo)
+        </div>
+        
+        
         // Цена книги
         <div class="form-group">
             @Html.LabelFor(model => model.Price, "Цена")
@@ -59,12 +73,26 @@
         </div>
         
         
+        // Статус заказа
         <div class="form-group">
-            <input type="submit" class="btn btn-success btn-block" value="Оформить покупку"/>
-        </div>                                          
+            @Html.LabelFor(model => model.Status, "Статус")
+            @Html.DropDownListFor(model => model.Status, new SelectList(new string[] {"Доставлен", "Не доставлен"}), 
+                new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.Status)
+        </div>
+        
+        // Курьер
+        <div class="form-group">
+            @Html.LabelFor(model => model.Courier, "Курьер")
+            @Html.TextBoxFor(model => model.Courier, new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.Courier)
+        </div>
+        
+        <div class="form-group">
+            <input type="submit" class="btn btn-success btn-block" value="Редактировать заказ"/>
+        </div>
     }
 </div>
-
 @section scripts{
 
     <environment names="Development">

@@ -9,9 +9,8 @@ namespace Book_shop2.Models
         [Required(ErrorMessage ="Не указано имя клиента")]
         public string Name { get; set; }
         
-        [DataType(DataType.PhoneNumber)]
         [Required(ErrorMessage ="Не указан номер телефона")]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid Phone number")]
+        [RegularExpression(@"^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$", ErrorMessage = "Некорректный номер телефона")]
         public string Phone { get; set; }
         
         [Required(ErrorMessage = "Не указана почта")]

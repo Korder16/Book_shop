@@ -40,10 +40,9 @@ namespace Book_shop2.Controllers
                 return RedirectToAction("Providers", "Provider");
             } 
             else
-            {
                 ModelState.AddModelError("","Некорректные даные");
-                return View(Provider);
-            }
+            
+            return View(Provider);
         }
     }
 }

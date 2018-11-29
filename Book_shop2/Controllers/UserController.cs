@@ -34,13 +34,15 @@ namespace Book_shop2.Controllers
             
             if (currentUser != null)
             {
-                EditUserModel model = new EditUserModel();
-                model.Id = currentUser.Id;
-                model.Name = currentUser.Name;
-                model.Email = currentUser.Email;
-                model.Password = currentUser.Password;
-                model.Activity = currentUser.Activity;
-                model.RoleId = currentUser.RoleId;
+                EditUserModel model = new EditUserModel
+                {
+                    Id = currentUser.Id,
+                    Name = currentUser.Name,
+                    Email = currentUser.Email,
+                    Password = currentUser.Password,
+                    Activity = currentUser.Activity,
+                    RoleId = currentUser.RoleId
+                };
             
                 // Заполянем список должностей
                 model.Roles = db.Roles.Select(r => new SelectListItem
@@ -71,7 +73,7 @@ namespace Book_shop2.Controllers
                 currentUser.Activity = model.Activity;
                 currentUser.RoleId = model.RoleId;
                 
-                
+                // Обновляем информацию о пользователе
                 db.Entry(currentUser).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Users", "User");

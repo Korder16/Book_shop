@@ -20,6 +20,7 @@
         <td>Телефон</td>
         <td>Email</td>
         <td>Адрес</td>
+        <td></td>
     </tr>
     @foreach (var client in Model)
     {
@@ -28,6 +29,7 @@
             <td>@client.Phone</td>
             <td>@client.Email</td>
             <td>@client.Adress</td>
+            <td><p><a href="/Client/EditClient/@client.Id" class="btn btn-primary">Редактировать</a></p></td>
         </tr>
     }
 </table>

@@ -65,6 +65,13 @@
         </div>
         
         
+        // Количество
+        <div class="form-group">
+            @Html.LabelFor(model => model.count, "Количество")
+            @Html.TextBoxFor(model => model.count, new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.count)
+        </div>
+        
         <div class="form-group">
             <input type="submit" class="btn btn-success btn-block" value="Добавить книгу"/>
         </div>                                                        

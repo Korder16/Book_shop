@@ -61,7 +61,6 @@
           <e p="provider.cs" t="Include" />
           <e p="purchase.cs" t="Include" />
           <e p="role.cs" t="Include" />
-          <e p="Stock.cs" t="Include" />
           <e p="supply.cs" t="Include" />
           <e p="User.cs" t="Include" />
         </e>
@@ -78,11 +77,13 @@
         </e>
         <e p="Startup.cs" t="Include" />
         <e p="ViewModels" t="Include">
+          <e p="EditOrderModel.cs" t="Include" />
           <e p="EditUserModel.cs" t="Include" />
           <e p="LoginModel.cs" t="Include" />
           <e p="OrderModel.cs" t="Include" />
           <e p="PurchaseModel.cs" t="Include" />
           <e p="RegisterModel.cs" t="Include" />
+          <e p="StatisticModel.cs" t="Include" />
           <e p="SupplyModel.cs" t="Include" />
         </e>
         <e p="Views" t="Include">
@@ -99,14 +100,15 @@
           <e p="Client" t="Include">
             <e p="AddClient.cshtml" t="Include" />
             <e p="Clients.cshtml" t="Include" />
+            <e p="EditClient.cshtml" t="Include" />
           </e>
           <e p="Home" t="Include">
-            <e p="Index.cshtml" t="Include" />
             <e p="Privacy.cshtml" t="Include" />
             <e p="Statistics.cshtml" t="Include" />
           </e>
           <e p="Order" t="Include">
             <e p="CreateOrder.cshtml" t="Include" />
+            <e p="EditOrder.cshtml" t="Include" />
             <e p="Orders.cshtml" t="Include" />
           </e>
           <e p="Provider" t="Include">

@@ -22,10 +22,7 @@
         // Имя пользователя
         <div class="form-group">
             @Html.LabelFor(model => model.Name, "Имя пользователя")
-    
-            <br/>
             @Html.TextBoxFor(model => model.Name, new {@class="form-control"})
-    
             @Html.ValidationMessageFor(model => model.Name)
         </div>
     
@@ -33,10 +30,7 @@
         // Пароль
         <div class="form-group">
             @Html.LabelFor(model => model.Password, "Пароль")
-        
-            <br/>
             @Html.PasswordFor(model => model.Password, new {@class="form-control"})
-    
             @Html.ValidationMessageFor(model => model.Password)
         </div>
         
@@ -55,10 +49,7 @@
         // Электронная почта
         <div class="form-group">
             @Html.LabelFor(model => model.Email, "Электронная почта")
-        
-            <br/>
             @Html.TextBoxFor(model => model.Email, new {@class="form-control"})
-        
             @Html.ValidationMessageFor(model => model.Email)
         </div>
     
@@ -66,13 +57,9 @@
         // Статус
         <div class="form-group">
             @Html.LabelFor(model => model.Activity, "Статус")
-        
-            <br/>
             @Html.DropDownListFor(model => model.Activity, new SelectList(new string[] {"Работает", "Не работает"}), 
                 new {@class="form-control"})
-        
             @Html.ValidationMessageFor(model => model.Activity)
-        
         </div>
     
     

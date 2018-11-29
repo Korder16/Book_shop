@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
+
 namespace Book_shop2.ViewModels
 {
     public class RegisterModel
@@ -25,7 +26,6 @@ namespace Book_shop2.ViewModels
         [Required(ErrorMessage = "Не указан статус")]
         public string Activity { get; set; }
         
-        [Required(ErrorMessage = "Не указана должность")]
         public string RoleId { get; set; }
     }
 }

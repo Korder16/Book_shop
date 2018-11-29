@@ -22,6 +22,7 @@
         <td>Жанр</td>
         <td>Цена</td>
         <td>Год</td>
+        <td>Количество</td>
     </tr>
     @foreach (var book in @Model)
     {
@@ -31,6 +32,7 @@
             <td>@book.genre</td>
             <td>@book.price</td>
             <td>@book.year</td>
+            <td>@book.count</td>
         </tr>
     }
 </table>

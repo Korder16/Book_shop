@@ -60,7 +60,7 @@ namespace Book_shop2.Controllers
             }).ToList();
 
             // Заполняем выпадающие список Users пользователями
-            model.Users = db.Users.Select(u => new SelectListItem
+            model.Users = db.Users.Where(u => u.RoleId == 2).Select(u => new SelectListItem
             {
                 Text = u.Name,
                 Value = u.Id.ToString()
@@ -73,26 +73,40 @@ namespace Book_shop2.Controllers
         [Authorize(Roles = "Работник магазина")]
         public IActionResult CreatePurchase(PurchaseModel model)
         {
-            if (ModelState.IsValid)
+            var currentBook = db.Books.First(b => b.id == model.Book_id);
+            
+            if (model.count <= currentBook.count)
             {
-                DateTime now = DateTime.Now;
-                
-                purchase currentPurchase = new purchase()
+                if (ModelState.IsValid)
                 {
-                    book_id = model.Book_id,
-                    price =  model.price,
-                    count = model.count,
-                    cost = model.price * model.count,
-                    stuff_id = model.stuff_id,
-                    year = now.ToString("d")
-                };
-                db.Purchases.Add(currentPurchase);
-                db.SaveChanges();
-                return RedirectToAction("Purchases", "Purchase");
+                    DateTime now = DateTime.Now;
+                
+                    purchase currentPurchase = new purchase()
+                    {
+                        book_id = model.Book_id,
+                        price =  model.price,
+                        count = model.count,
+                        cost = model.price * model.count,
+                        stuff_id = model.stuff_id,
+                        year = now.ToString("d")
+                    };
+                    
+                    // Добавление новой покупки
+                    db.Purchases.Add(currentPurchase);
+
+                    // Уменьшаем количество книг на складе
+                    currentBook.count -= model.count;
+                    db.Entry(currentBook).State = EntityState.Modified;
+                    
+                    db.SaveChanges();
+                    return RedirectToAction("Purchases", "Purchase");
+                }
+                else
+                    ModelState.AddModelError("","Некорректные данные");
             }
             else
-                ModelState.AddModelError("","Некорректные данные");
-
+                ModelState.AddModelError("","Количество книг на складе:" + model.count);
+            
             return View(model);
         }
     }

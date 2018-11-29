@@ -12,7 +12,7 @@
     <h3>Поставки</h3>
 </div>
 <div style="position: fixed; top: 67px; right: 200px;">
-    <a href="../Home/AddSupply" type="button" class="btn btn-success">Добавить поставку</a>
+    <a href="../Supply/AddSupply" type="button" class="btn btn-success">Добавить поставку</a>
 </div>
 <table class="table table-striped">
     <tr>
@@ -23,7 +23,7 @@
         <td>Количество</td>
         <td>Стоимость</td>
     </tr>
-    @foreach (var supply in @ViewBag.Supplies)
+    @foreach (var supply in ViewBag.Supplies)
     {
         <tr>
             <td>@supply.ProviderName</td>

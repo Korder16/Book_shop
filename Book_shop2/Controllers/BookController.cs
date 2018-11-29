@@ -37,7 +37,7 @@ namespace Book_shop2.Controllers
         {
             db.Books.Add(Book);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("Books", "Book");
         }
     }
 }

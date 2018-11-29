@@ -27,8 +27,9 @@
         
         // Название книги
         <div class="form-group">
-            @Html.LabelFor(model => model.Book_id, "Название книги");
-            @Html.DropDownListFor(model => model.Book_id, new SelectList(Model.Books, "Value", "Text"), new {@class="form-control"})
+            @Html.LabelFor(model => model.Book_id, "Название книги")
+            @Html.DropDownListFor(model => model.Book_id, new SelectList(Model.Books, "Value", "Text"), 
+                new {@class="form-control"})
             @Html.ValidationMessageFor(model => model.Book_id)
         </div>
         
@@ -49,26 +50,11 @@
         </div>
         
         
-        // Стоимость покупки
-        <div class="form-group">
-            @Html.LabelFor(model => model.cost, "Стоимость")
-            @Html.TextBoxFor(model => model.cost, new {@class="form-control"})
-            @Html.ValidationMessageFor(model => model.cost)
-        </div>
-        
-        
-        // Дата покупки
-        <div class="form-group">
-            @Html.LabelFor(model => model.year, "Дата покупки")
-            @Html.TextBoxFor(model => model.year, new {@class="form-control"})
-            @Html.ValidationMessageFor(model => model.year)
-        </div>
-        
-        
         // Продавец
         <div class="form-group">
-            @Html.LabelFor(model => model.stuff_id, "Продавец");
-            @Html.DropDownListFor(model => model.stuff_id, new SelectList(Model.Users, "Value", "Text"), new {@class="form-control"})
+            @Html.LabelFor(model => model.stuff_id, "Продавец")
+            @Html.DropDownListFor(model => model.stuff_id, new SelectList(Model.Users, "Value", "Text"), 
+                new {@class="form-control"})
             @Html.ValidationMessageFor(model => model.stuff_id)
         </div>
         

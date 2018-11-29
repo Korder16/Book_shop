@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Book_shop2.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Book_shop2.ViewModels

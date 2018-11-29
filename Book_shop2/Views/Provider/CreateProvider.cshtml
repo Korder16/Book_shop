@@ -24,21 +24,15 @@
     // Редактирование имени пользователя
     <div class="form-group">
         @Html.LabelFor(model => model.Name, "Имя пользователя")
-    
-        <br/>
         @Html.TextBoxFor(model => model.Name, new {@class="form-control"})
-    
         @Html.ValidationMessageFor(model => model.Name)
     </div>
     
     
-    // Редактирование пароля 
+    // Редактирование города
     <div class="form-group">
-        @Html.LabelFor(model => model.City, "Пароль")
-        
-        <br/>
+        @Html.LabelFor(model => model.City, "Город")
         @Html.TextBoxFor(model => model.City, new {@class="form-control"})
-    
         @Html.ValidationMessageFor(model => model.City)
     </div>
     
@@ -46,36 +40,16 @@
     // Редактирование электронной почты
     <div class="form-group">
         @Html.LabelFor(model => model.Email, "Электронная почта")
-        
-        <br/>
         @Html.TextBoxFor(model => model.Email, new {@class="form-control"})
-        
         @Html.ValidationMessageFor(model => model.Email)
     </div>
     
     
-    // Редактирование статуса
+    // Редактирование телефона
     <div class="form-group">
-        @Html.LabelFor(model => model.Phone, "Статус")
-        
-        <br/>
+        @Html.LabelFor(model => model.Phone, "Телефон")
         @Html.TextBoxFor(model => model.Phone, new {@class="form-control"})
-        
         @Html.ValidationMessageFor(model => model.Phone)
-        
-    </div>
-    
-    
-    // Редактирование должности
-    <div class="form-group">
-        @Html.LabelFor(model => model.Email, "Должность")
-        
-        <br/>
-        @Html.TextBoxFor(model => model.Email, new {@class="form-control"})
-        
-        @Html.ValidationMessageFor(model => model.Email)
-    
-        <br/>
     </div>
     
     <div class="form-group">

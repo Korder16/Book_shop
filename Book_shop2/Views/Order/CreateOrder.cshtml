@@ -16,7 +16,7 @@
     }
 </style>
 <body class="text-center">
-<h1>Оформление покупки</h1>
+<h1>Оформление заказа</h1>
 <div class="form-signin">
     @using (Html.BeginForm())
     {
@@ -26,14 +26,16 @@
         // Название книги
         <div class="form-group">
             @Html.LabelFor(model => model.BookId, "Название книги")
-            @Html.DropDownListFor(model => model.BookId, new SelectList(Model.Books, "Value", "Text"), new {@class="form-control"})
+            @Html.DropDownListFor(model => model.BookId, new SelectList(Model.Books, "Value", "Text"), 
+                new {@class="form-control"})
             @Html.ValidationMessageFor(model => model.BookId)
         </div>
         
         // Клиент
         <div class="form-group">
             @Html.LabelFor(model => model.CustomerId, "Имя клиента")
-            @Html.DropDownListFor(model => model.CustomerId, new SelectList(Model.Clients, "Value", "Text"), new {@class="form-control"})
+            @Html.DropDownListFor(model => model.CustomerId, new SelectList(Model.Clients, "Value", "Text"), 
+                new {@class="form-control"})
             @Html.ValidationMessageFor(model => model.CustomerId)
         </div>
         
@@ -41,19 +43,13 @@
         // Продавец
         <div class="form-group">
             @Html.LabelFor(model => model.StuffId, "Имя пользователя")
-            @Html.DropDownListFor(model => model.StuffId, new SelectList(Model.Users, "Value", "Text"), new {@class="form-control"})
+            @Html.DropDownListFor(model => model.StuffId, new SelectList(Model.Users, "Value", "Text"), 
+                new {@class="form-control"})
             @Html.ValidationMessageFor(model => model.StuffId)
         </div>
         
         
-        // Дата заказа
-        <div class="form-group">
-            @Html.HiddenFor(model => model.DateOn, new {@class="form-control"})
-            @Html.ValidationMessageFor(model => model.DateOn)
-        </div>
-        
-        
-        // Дата получения
+        // Дата доставки
         <div class="form-group">
             @Html.LabelFor(model => model.DateTo, "Дата доставки")
             @Html.TextBoxFor(model => model.DateTo, new {@class="form-control"})
@@ -74,19 +70,6 @@
             @Html.LabelFor(model => model.Count, "Количество")
             @Html.TextBoxFor(model => model.Count, new {@class="form-control"})
             @Html.ValidationMessageFor(model => model.Count)
-        </div>
-        
-        
-        // Стоимость покупки
-        <div class="form-group">
-            @Html.HiddenFor(model => model.Cost, new {@class="form-control"})
-        </div>
-        
-        
-        // Статус заказа
-        <div class="form-group">
-            @Html.HiddenFor(model => model.Status, new {@class="form-control"})
-            @Html.ValidationMessageFor(model => model.Status)
         </div>
         
         

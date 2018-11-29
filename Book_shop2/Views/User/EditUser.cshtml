@@ -29,10 +29,7 @@
         // Редактирование имени пользователя
         <div class="form-group">
             @Html.LabelFor(model => model.Name, "Имя пользователя")
-    
-            <br/>
             @Html.TextBoxFor(model => model.Name, new {@class="form-control"})
-    
             @Html.ValidationMessageFor(model => model.Name)
         </div>
     
@@ -40,10 +37,7 @@
         // Редактирование пароля 
         <div class="form-group">
             @Html.LabelFor(model => model.Password, "Пароль")
-        
-            <br/>
             @Html.PasswordFor(model => model.Password, new {@class="form-control"})
-    
             @Html.ValidationMessageFor(model => model.Password)
         </div>
     
@@ -51,10 +45,7 @@
         // Редактирование электронной почты
         <div class="form-group">
             @Html.LabelFor(model => model.Email, "Электронная почта")
-        
-            <br/>
             @Html.TextBoxFor(model => model.Email, new {@class="form-control"})
-        
             @Html.ValidationMessageFor(model => model.Email)
         </div>
     
@@ -62,23 +53,17 @@
         // Редактирование статуса
         <div class="form-group">
             @Html.LabelFor(model => model.Activity, "Статус")
-        
-            <br/>
             @Html.DropDownListFor(model => model.Activity, new SelectList(new string[] {"Работает", "Не работает"}), 
                 new {@class="form-control"})
-        
             @Html.ValidationMessageFor(model => model.Activity)
-        
         </div>
     
     
         // Редактирование должности
         <div class="form-group">
             @Html.LabelFor(model => model.RoleId, "Должность")
-        
-            <br/>
-            @Html.DropDownListFor(model => model.RoleId, new SelectList(Model.Roles, "Value", "Text"), new {@class="form-control"})
-        
+            @Html.DropDownListFor(model => model.RoleId, new SelectList(Model.Roles, "Value", "Text"), 
+                new {@class="form-control"})
             @Html.ValidationMessageFor(model => model.RoleId)
     
             <br/>

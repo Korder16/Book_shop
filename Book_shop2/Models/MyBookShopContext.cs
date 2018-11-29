@@ -1,6 +1,3 @@
-//using Microsoft.AspNetCore.Identity;
-
-using System.Globalization;
 using Microsoft.EntityFrameworkCore;
 
 namespace Book_shop2.Models
@@ -12,7 +9,6 @@ namespace Book_shop2.Models
         public DbSet<user> Users { get; set; }
         public DbSet<client> Clients { get; set; }
         public DbSet<order> Orders { get; set; }
-        public DbSet<stock> Stock { get; set; }
         public DbSet<supply> Supplies { get; set; }
         public DbSet<provider> Providers { get; set; }
         public DbSet<role> Roles { get; set; }

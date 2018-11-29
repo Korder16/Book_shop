@@ -14,7 +14,6 @@ C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Book_
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Book_shop2.TagHelpers.input.cache
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Book_shop2.TagHelpers.output.cache
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Book_shop2.RazorCoreGenerate.cache
-C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Home\Index.g.cshtml.cs
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Home\Privacy.g.cshtml.cs
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Shared\Error.g.cshtml.cs
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Shared\_CookieConsentPartial.g.cshtml.cs
@@ -46,3 +45,5 @@ C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Supply\Supplies.g.cshtml.cs
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\User\Users.g.cshtml.cs
 C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\User\EditUser.g.cshtml.cs
+C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Order\EditOrder.g.cshtml.cs
+C:\Users\Islam\RiderProjects\Book_shop2\Book_shop2\obj\Debug\netcoreapp2.1\Razor\Views\Client\EditClient.g.cshtml.cs

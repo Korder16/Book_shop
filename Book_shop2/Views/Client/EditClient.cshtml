@@ -1,5 +1,4 @@
-@using Book_shop2.Models
-@model Book_shop2.ViewModels.SupplyModel
+@model Book_shop2.Models.client
 
 @{
     Layout = "~/Views/Shared/_LayoutUser.cshtml";
@@ -17,7 +16,7 @@
     }
 </style>
 <body class="text-center">
-<h1>Новая поставка</h1>
+<h1>Редактирование информации о клиенте</h1>
 <div class="form-signin">
     @using (Html.BeginForm())
     {
@@ -25,43 +24,41 @@
         @Html.ValidationSummary(true)
         
         
-        // Поставщик
+        // Имя клиента
         <div class="form-group">
-            @Html.LabelFor(model => model.Provider_id, "Поставщик")
-            @Html.DropDownListFor(model => model.Provider_id, new SelectList(Model.Providers, "Value", "Text"), 
-                new {@class="form-control"})
-            @Html.ValidationMessageFor(model => model.Provider_id)
+            @Html.LabelFor(model => model.Name, "Имя клиента")
+            @Html.TextBoxFor(model => model.Name, new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.Name)
         </div>
         
         
-        // Название книги
+        // Телефон клиента
         <div class="form-group">
-            @Html.LabelFor(model => model.Book_id, "Название книги")
-            @Html.DropDownListFor(model => model.Book_id, new SelectList(Model.Books, "Value", "Text"), 
-                new {@class="form-control"})
-            @Html.ValidationMessageFor(model => model.Book_id)
-        </div>
-        
-       
-        // Цена книги
-        <div class="form-group">
-            @Html.LabelFor(model => model.Price, "Цена")
-            @Html.TextBoxFor(model => model.Price, new {@class="form-control"})
-            @Html.ValidationMessageFor(model => model.Price)
+            @Html.LabelFor(model => model.Phone, "Телефон клиента")
+            @Html.TextBoxFor(model => model.Phone, new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.Phone)
         </div>
         
         
-        // Количество книг
+        // Электронная почта клиента
         <div class="form-group">
-            @Html.LabelFor(model => model.Count, "Количество")
-            @Html.TextBoxFor(model => model.Count, new {@class="form-control"})
-            @Html.ValidationMessageFor(model => model.Count)
+            @Html.LabelFor(model => model.Email, "Электронная почта клиента")
+            @Html.TextBoxFor(model => model.Email, new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+        
+        
+        // Адрес клиента
+        <div class="form-group">
+            @Html.LabelFor(model => model.Adress, "Адрес клиента")
+            @Html.TextBoxFor(model => model.Adress, new {@class="form-control"})
+            @Html.ValidationMessageFor(model => model.Adress)
         </div>
         
         
         <div class="form-group">
-            <input type="submit" class="btn btn-success btn-block" value="Оформить покупку"/>
-        </div>                                          
+            <input type="submit" class="btn btn-success btn-block" value="Редактировать"/>
+        </div>                                                       
     }
 </div>
 

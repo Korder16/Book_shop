@@ -9,6 +9,7 @@ using Book_shop2.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 //using Microsoft.AspNetCore.Identity.UI.Pages.Account.Internal;
 
@@ -56,7 +57,7 @@ namespace Book_shop2.Controllers
                         
                         // Пользователь - работник магазина
                         case 2:
-                            return RedirectToAction("Index", "Home");
+                            return RedirectToAction("Books", "Book");
                             break;
                         default:
                             return View(model);
@@ -82,17 +83,17 @@ namespace Book_shop2.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterModel model)
         {
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 user user = await db.Users.FirstOrDefaultAsync(u => u.Name == model.Name);
                 if (user == null)
                 {
                     
-                    // добавляем пользователя в БД
+                    // Добавляем пользователя в БД
                     
                     user = new user {Name = model.Name, Password = model.Password, 
-                        Email = model.Email, Activity = model.Activity};
-                    role userRole = await db.Roles.FirstOrDefaultAsync(r => r.Name == "Пользователь");
+                        Email = model.Email, Activity = model.Activity, RoleId = 2};
+                    var userRole = await db.Roles.FirstOrDefaultAsync(r => r.Name == "Работник магазина");
                
                     if (userRole != null)
                         user.role = userRole;
@@ -100,9 +101,7 @@ namespace Book_shop2.Controllers
                     db.Users.Add(user);
                     await db.SaveChangesAsync();
 
-                    await Authenticate(user); // Аутентификация
-
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Users", "User");
                 }
                 else
                     ModelState.AddModelError("","Некорректные логин и(или) пароль");
