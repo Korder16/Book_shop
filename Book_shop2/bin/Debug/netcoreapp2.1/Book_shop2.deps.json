@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "03bfe4315851b7cfac8d535d10a77f9e5fef05ee"
+    "signature": "f6e5dcaea9ad446e60be2a6587e7ed64d0061a2e"
   },
   "compilationOptions": {
     "defines": [
@@ -30,7 +30,6 @@
           "Microsoft.EntityFrameworkCore.Tools": "2.2.0-preview3-35497",
           "Microsoft.EntityFrameworkCore.Tools.DotNet": "2.1.0-preview1-final",
           "Microsoft.NETCore.App": "2.1.0",
-          "NUnit": "3.11.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "2.2.0-preview1"
         },
         "runtime": {
@@ -483,20 +482,6 @@
         },
         "compile": {
           "lib/netstandard2.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {}
-        }
-      },
-      "NUnit/3.11.0": {
-        "dependencies": {
-          "NETStandard.Library": "2.0.3"
-        },
-        "runtime": {
-          "lib/netstandard2.0/nunit.framework.dll": {
-            "assemblyVersion": "3.11.0.0",
-            "fileVersion": "3.11.0.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/nunit.framework.dll": {}
         }
       },
       "Remotion.Linq/2.2.0": {
@@ -3487,13 +3472,6 @@
       "sha512": "sha512-bXZBzFZY/qtPbNYtVEd+6Vs8ZJuIqoDnMat8xMWJmBnc2UrZs2D9GiI2Z+WQJ6z4smQ0+04T34JH3LY0T7KTjQ==",
       "path": "npgsql.entityframeworkcore.postgresql/2.2.0-preview1",
       "hashPath": "npgsql.entityframeworkcore.postgresql.2.2.0-preview1.nupkg.sha512"
-    },
-    "NUnit/3.11.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-zecrYxUA5p5w8AZ2bvbBbiUIcrQnZAVPrziNMSWMdcOi0D2Oe7yKUNivWPIQMcUwQDHmWtS/ijnD48ubU/eHZQ==",
-      "path": "nunit/3.11.0",
-      "hashPath": "nunit.3.11.0.nupkg.sha512"
     },
     "Remotion.Linq/2.2.0": {
       "type": "package",

@@ -11,8 +11,8 @@ namespace Book_shop2.Controllers
 {
     public class HomeController : Controller
     {
-        MyBookShopContext db;
-
+        private MyBookShopContext db;
+        
         public HomeController(MyBookShopContext context)
         {
             db = context;
@@ -22,6 +22,9 @@ namespace Book_shop2.Controllers
         [Authorize(Roles = "Администратор")]
         public IActionResult Statistics()
         {
+            ViewData["Message"] = "Hello!";
+
+
             double countAllOrders = db.Orders.Count();
 
             // Формируем статистику по продавцам
@@ -32,12 +35,12 @@ namespace Book_shop2.Controllers
                 (users, purchases) => new SqlRequestStatistics
                 {
                     Name = users.Name,
-                    PurchasesCount = db.Purchases.Count( pp=>pp.stuff_id == users.Id),
+                    PurchasesCount = db.Purchases.Count(pp => pp.stuff_id == users.Id),
                     OrdersCount = db.Orders.Count(o => o.Stuff_id == users.Id),
                     SuccessOrdersCount = db.Orders.Count(o => o.Stuff_id == users.Id && o.Status == "Доставлен"),
                     OrdersPercent = Math.Round(db.Orders
-                                                   .Count(o => o.Stuff_id == users.Id 
-                                                               && o.Status == "Доставлен") 
+                                                   .Count(o => o.Stuff_id == users.Id
+                                                               && o.Status == "Доставлен")
                                                / countAllOrders * 100.0)
                 });
 
@@ -46,7 +49,7 @@ namespace Book_shop2.Controllers
             return View();
         }
 
-        
+
         public IActionResult Privacy()
         {
             return View();

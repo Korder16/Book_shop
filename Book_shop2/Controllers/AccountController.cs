@@ -53,15 +53,13 @@ namespace Book_shop2.Controllers
                         // Пользователь - администратор
                         case 1:
                             return RedirectToAction("Statistics", "Home");
-                            break;
                         
                         // Пользователь - работник магазина
                         case 2:
                             return RedirectToAction("Books", "Book");
-                            break;
+                        
                         default:
                             return View(model);
-                            break;
                     }
                 }
                 else
