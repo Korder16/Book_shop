@@ -13,9 +13,16 @@ namespace Book_shop2.Models
         public DbSet<provider> Providers { get; set; }
         public DbSet<role> Roles { get; set; }
         
+        
         public MyBookShopContext(DbContextOptions<MyBookShopContext> options) : base(options)
         {
             Database.EnsureCreated();
         }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseNpgsql("User ID = bookshop worker;Password=120;Server=localhost;Port=5432;Database=book_shop;Integrated Security=true;Pooling=true");
+        }
+        
     }
 }

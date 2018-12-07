@@ -81,7 +81,7 @@ using Microsoft.AspNetCore.Mvc.Internal;
             WriteLiteral("<style>\r\n    body {\r\n        background-color: #f5f5f5;\r\n    }\r\n    .form-signin {\r\n        width: 100%;\r\n        max-width: 330px;\r\n        padding: 15px;\r\n        margin: auto;\r\n    }\r\n</style>\r\n\r\n");
             EndContext();
             BeginContext(358, 3162, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e4a577fdd308469ba76ca2a57043fab7", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a889ac3b5ad0467b8f9771fdc2ae4900", async() => {
                 BeginContext(384, 51, true);
                 WriteLiteral("\r\n<h1>Новая книга</h1>\r\n<div class=\"form-signin\">\r\n");
                 EndContext();
@@ -356,12 +356,12 @@ using Microsoft.AspNetCore.Mvc.Internal;
                     WriteLiteral("\r\n\r\n    ");
                     EndContext();
                     BeginContext(2551, 234, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cbd71d56f9e846509fccf3fcf76690de", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5664f0e6a80040f19ca4a0cf679eb20d", async() => {
                         BeginContext(2584, 10, true);
                         WriteLiteral("\r\n        ");
                         EndContext();
                         BeginContext(2594, 71, false);
-                        __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "02209f50a8354746ab4d3f8d0f8ec674", async() => {
+                        __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a1b90e8e9dba430c8375c29ceec0bb56", async() => {
                         }
                         );
                         __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -379,7 +379,7 @@ using Microsoft.AspNetCore.Mvc.Internal;
                         WriteLiteral("\r\n        ");
                         EndContext();
                         BeginContext(2675, 90, false);
-                        __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2f2832bbd2514c91bf3fc0be003e14b5", async() => {
+                        __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "76b20cc6a16e4632a5842c97f883e2eb", async() => {
                         }
                         );
                         __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -414,12 +414,12 @@ using Microsoft.AspNetCore.Mvc.Internal;
                     WriteLiteral("\r\n    ");
                     EndContext();
                     BeginContext(2791, 717, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2e27750c0fd44e8da8bcc87535579077", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("environment", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "717cb35826f240f7a219114d86d38f04", async() => {
                         BeginContext(2831, 10, true);
                         WriteLiteral("\r\n        ");
                         EndContext();
                         BeginContext(2841, 277, false);
-                        __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f2200ddd270e4c14ad939ef1576a24db", async() => {
+                        __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8c23a21880384439838a9ff56b339e8c", async() => {
                             BeginContext(3099, 10, true);
                             WriteLiteral("\r\n        ");
                             EndContext();
@@ -445,7 +445,7 @@ using Microsoft.AspNetCore.Mvc.Internal;
                         WriteLiteral("\r\n        ");
                         EndContext();
                         BeginContext(3128, 360, false);
-                        __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d6f9d98f6b80436fb255809eb80334b5", async() => {
+                        __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d423ee15f04a4578b58d5fab03344843", async() => {
                             BeginContext(3469, 10, true);
                             WriteLiteral("\r\n        ");
                             EndContext();

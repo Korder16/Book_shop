@@ -2689,6 +2689,7 @@
           "Microsoft.EntityFrameworkCore.Design": "2.2.0-preview3-35497",
           "Microsoft.EntityFrameworkCore.Tools": "2.2.0-preview3-35497",
           "Microsoft.EntityFrameworkCore.Tools.DotNet": "2.1.0-preview1-final",
+          "Microsoft.NETCore.App": "2.1.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "2.2.0-preview1"
         },
         "compile": {
@@ -8389,7 +8390,7 @@
       "code": "NU1608",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Detected package version outside of dependency constraint: xunit 2.3.1 requires xunit.core (= 2.3.1) but version xunit.core 2.4.1 was resolved.",
+      "message": "Версия обнаруженного пакета нарушает ограничение зависимости: xunit 2.3.1 требуется xunit.core (= 2.3.1), но в результате разрешения получена версия xunit.core 2.4.1.",
       "libraryId": "xunit.core",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.1"
@@ -8399,7 +8400,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Microsoft.AspNet.Mvc 5.2.7' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
+      "message": "Пакет \"Microsoft.AspNet.Mvc 5.2.7\" был восстановлен с помощью \".NETFramework,Version=v4.6.1\", а не целевой платформы проекта \".NETCoreApp,Version=v2.1\". Этот пакет может быть не полностью совместим с вашим проектом.",
       "libraryId": "Microsoft.AspNet.Mvc",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.1"
@@ -8409,7 +8410,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Microsoft.AspNet.Razor 3.2.7' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
+      "message": "Пакет \"Microsoft.AspNet.Razor 3.2.7\" был восстановлен с помощью \".NETFramework,Version=v4.6.1\", а не целевой платформы проекта \".NETCoreApp,Version=v2.1\". Этот пакет может быть не полностью совместим с вашим проектом.",
       "libraryId": "Microsoft.AspNet.Razor",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.1"
@@ -8419,7 +8420,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Microsoft.AspNet.WebPages 3.2.7' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
+      "message": "Пакет \"Microsoft.AspNet.WebPages 3.2.7\" был восстановлен с помощью \".NETFramework,Version=v4.6.1\", а не целевой платформы проекта \".NETCoreApp,Version=v2.1\". Этот пакет может быть не полностью совместим с вашим проектом.",
       "libraryId": "Microsoft.AspNet.WebPages",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.1"
@@ -8429,7 +8430,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Package 'Microsoft.Web.Infrastructure 1.0.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
+      "message": "Пакет \"Microsoft.Web.Infrastructure 1.0.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1\", а не целевой платформы проекта \".NETCoreApp,Version=v2.1\". Этот пакет может быть не полностью совместим с вашим проектом.",
       "libraryId": "Microsoft.Web.Infrastructure",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.1"

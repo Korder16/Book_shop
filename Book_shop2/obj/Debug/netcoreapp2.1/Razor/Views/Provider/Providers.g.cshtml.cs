@@ -60,7 +60,7 @@ using Book_shop2.Models;
             WriteLiteral("\r\n<html>\r\n");
             EndContext();
             BeginContext(112, 54, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d8870a6556fe493fb0e83e32054f47a3", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "532524c593aa4aff9fe5514e0659cf45", async() => {
                 BeginContext(118, 41, true);
                 WriteLiteral("\r\n    <title>Список поставщиков</title>\r\n");
                 EndContext();
@@ -80,7 +80,7 @@ using Book_shop2.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(168, 635, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5339bfc8de6949e4ba43571fbb9e9315", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d99b23ec9658463fa5ba247daad571b2", async() => {
                 BeginContext(174, 381, true);
                 WriteLiteral(@"
 <div>

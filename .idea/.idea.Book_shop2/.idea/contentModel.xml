@@ -214,9 +214,10 @@
       </e>
       <e p="Book_shop2.sln" t="IncludeFlat" />
       <e p="Book_shop2.Tests" t="IncludeRecursive">
+        <e p="appsettings.json" t="Include" />
         <e p="Bin" t="ExcludeRecursive" />
         <e p="Book_shop2.Tests.csproj" t="IncludeRecursive" />
-        <e p="HomeControllerTests.cs" t="Include" />
+        <e p="ClientControllerTests.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp2.1" t="Include">

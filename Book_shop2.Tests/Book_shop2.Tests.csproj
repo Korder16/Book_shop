@@ -22,4 +22,10 @@
       <ProjectReference Include="..\Book_shop2\Book_shop2.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Include="appsettings.json">
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+    </ItemGroup>
+
 </Project>

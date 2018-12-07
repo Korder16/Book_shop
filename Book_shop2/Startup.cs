@@ -37,7 +37,8 @@ namespace Book_shop2
 
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-            services.AddEntityFrameworkNpgsql().AddDbContext<MyBookShopContext>(opt => opt.UseNpgsql(Configuration.GetConnectionString("MyBookShopConnection")));
+            services.AddEntityFrameworkNpgsql().AddDbContext<MyBookShopContext>
+                (opt => opt.UseNpgsql(Configuration.GetConnectionString("MyBookShopConnection")));
             //services.AddDbContext<MyBookShopContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("MyBookShopConnection")));
             
             //установка конфигурации подключения

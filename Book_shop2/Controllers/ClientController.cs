@@ -11,10 +11,12 @@ namespace Book_shop2.Controllers
     {
         MyBookShopContext db;
         
+        
         public ClientController(MyBookShopContext context)
         {
             db = context;
         }
+
         
         // Список покупателей
         [Authorize(Roles = "Работник магазина")]
