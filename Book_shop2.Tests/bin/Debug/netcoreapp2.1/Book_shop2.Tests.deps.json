@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.1",
-    "signature": "76d90305e3beb25c3608fc826be4d38d16f406c7"
+    "signature": "f58e3ed938b18ba8827d16afe934725c08e337db"
   },
   "compilationOptions": {},
   "targets": {
@@ -15,6 +15,7 @@
           "Microsoft.NET.Test.Sdk": "15.8.0",
           "Moq": "4.10.1",
           "System.Data.SqlClient": "4.6.0",
+          "TestToolsToXunitProxy": "0.0.4",
           "xunit": "2.3.1",
           "xunit.core": "2.4.1",
           "xunit.runner.visualstudio": "2.3.1"
@@ -1869,6 +1870,18 @@
           }
         }
       },
+      "TestToolsToXunitProxy/0.0.4": {
+        "dependencies": {
+          "System.Runtime.InteropServices": "4.3.0",
+          "xunit": "2.3.1"
+        },
+        "runtime": {
+          "lib/netcoreapp1.1/TestToolsToXunitProxy.dll": {
+            "assemblyVersion": "0.0.4.0",
+            "fileVersion": "0.0.4.0"
+          }
+        }
+      },
       "xunit/2.3.1": {
         "dependencies": {
           "xunit.analyzers": "0.7.0",
@@ -2987,6 +3000,13 @@
       "sha512": "sha512-Zm2BdeanuncYs3NhCj4c9e1x3EXFzFBVv2wPEc/Dj4ZbI9R8ecLSR5frAsx4zJCPBtKQreQ7Q/KxJEohJZbfzA==",
       "path": "system.xml.xpath.xmldocument/4.0.1",
       "hashPath": "system.xml.xpath.xmldocument.4.0.1.nupkg.sha512"
+    },
+    "TestToolsToXunitProxy/0.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NTYBS/OVJPihOAwBxbW0rwmpvjys2X4ybnE+etIEQCZOQssdQhFCj5JNDOMD3dmcRPs/6eki9Gxk56r58SsT/g==",
+      "path": "testtoolstoxunitproxy/0.0.4",
+      "hashPath": "testtoolstoxunitproxy.0.0.4.nupkg.sha512"
     },
     "xunit/2.3.1": {
       "type": "package",

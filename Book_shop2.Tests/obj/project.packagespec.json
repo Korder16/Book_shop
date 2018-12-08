@@ -60,6 +60,10 @@
           "target": "Package",
           "version": "[4.6.0, )"
         },
+        "TestToolsToXunitProxy": {
+          "target": "Package",
+          "version": "[0.0.4, )"
+        },
         "xunit": {
           "target": "Package",
           "version": "[2.3.1, )"

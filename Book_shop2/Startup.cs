@@ -34,6 +34,7 @@ namespace Book_shop2
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            services.AddScoped<IRepository, ClientRepository>();
 
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);

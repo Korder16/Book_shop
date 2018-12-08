@@ -9,12 +9,11 @@ namespace Book_shop2.Controllers
 {
     public class ClientController : Controller
     {
-        MyBookShopContext db;
+        private readonly IRepository _repository;
         
-        
-        public ClientController(MyBookShopContext context)
+        public ClientController(IRepository r)
         {
-            db = context;
+            _repository = r;
         }
 
         
@@ -22,7 +21,7 @@ namespace Book_shop2.Controllers
         [Authorize(Roles = "Работник магазина")]
         public IActionResult Clients()
         {
-            return View(db.Clients.ToList());
+            return View(_repository.GetAllClients());
         }
         
         
@@ -38,9 +37,16 @@ namespace Book_shop2.Controllers
         [Authorize(Roles = "Работник магазина")]
         public IActionResult AddClient(client Client)
         {
-            db.Clients.Add(Client);
-            db.SaveChanges();
-            return RedirectToAction("Clients", "Client");
+            if (ModelState.IsValid)
+            {
+                _repository.CreateClient(Client);
+                _repository.Save();
+                return RedirectToAction("Clients", "Client");
+            }
+            else
+                ModelState.AddModelError("","Некорректные данные");
+
+            return View(Client);
         }
         
         
@@ -49,8 +55,7 @@ namespace Book_shop2.Controllers
         [Authorize(Roles = "Работник магазина")]
         public IActionResult EditClient(int? id)
         {
-            client currentClient = db.Clients.Find(id);
-
+            client currentClient = _repository.GetClient(id.GetValueOrDefault());
             if (currentClient != null)
             {
                 client model = new client
@@ -83,9 +88,10 @@ namespace Book_shop2.Controllers
                     Phone = model.Phone
                 };
                 
+                
                 // Обновляем информацию о клиенте
-                db.Entry(currentClient).State = EntityState.Modified;
-                db.SaveChanges();
+                _repository.UpdateClient(currentClient);
+                _repository.Save();
                 return RedirectToAction("Clients", "Client");
             }
             else

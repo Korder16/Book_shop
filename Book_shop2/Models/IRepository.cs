@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
@@ -6,67 +7,47 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Book_shop2.Models
 {
-    public interface IRepository : IDisposable
+    public interface IRepository
     {
-        List<client> GetClientList();
+        IEnumerable<client> GetAllClients();
         client GetClient(int id);
-        void Create(client item);
-        void Update(client item);
+        void CreateClient(client man);
+        void UpdateClient(client man);
         void Save();
     }
-
+    
     public class ClientRepository : IRepository
     {
-        private MyBookShopContext db;
+        private MyBookShopContext _db;
 
         public ClientRepository()
         {
-            this.db = new MyBookShopContext(new DbContextOptions<MyBookShopContext>());
+            this._db = new MyBookShopContext(new DbContextOptions<MyBookShopContext>());
         }
 
-        public List<client> GetClientList()
+        public IEnumerable<client> GetAllClients()
         {
-            return db.Clients.ToList();
+            return _db.Clients.ToList();
         }
 
         public client GetClient(int id)
         {
-            return db.Clients.Find(id);
+            return _db.Clients.Find(id);
         }
 
-        public void Create(client item)
+        public void CreateClient(client man)
         {
-            db.Clients.Add(item);
+            _db.Clients.Add(man);
         }
 
-        public void Update(client item)
+        public void UpdateClient(client man)
         {
-            db.Entry(item).State = EntityState.Modified;
+            _db.Entry(man).State = EntityState.Modified;
         }
 
         public void Save()
         {
-            db.SaveChanges();
-        }
-        
-        private bool disposed = false;
-        
-        public virtual void Dispose(bool disposing)
-        {
-            if(!this.disposed)
-            {
-                if(disposing)
-                {
-                    db.Dispose();
-                }
-            }
-            this.disposed = true;
-        }
-  
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
+            _db.SaveChanges();
         }
     }
 }

@@ -65,7 +65,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
             WriteLiteral("<html>\r\n");
             EndContext();
             BeginContext(151, 56, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bfaf73974d724b5684d4791d5691b1a1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "53edb3071e0e478287e68c80fccf5f98", async() => {
                 BeginContext(157, 43, true);
                 WriteLiteral("\r\n    <title>Список пользователей</title>\r\n");
                 EndContext();
@@ -85,7 +85,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(209, 940, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "eb43235961814cdfba98f0f9fd3285f4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0617b4c2b342488980e04e11621f87b5", async() => {
                 BeginContext(215, 398, true);
                 WriteLiteral(@"
 <div>

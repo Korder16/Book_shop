@@ -6,6 +6,7 @@ namespace Book_shop2.Models
     {
         public int Id { get; set; }
         
+        [DataType(DataType.Text)]
         [Required(ErrorMessage ="Не указано имя клиента")]
         public string Name { get; set; }
         

@@ -2600,6 +2600,20 @@
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
       },
+      "TestToolsToXunitProxy/0.0.4": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.NETCore.App": "1.1.1",
+          "System.Runtime.InteropServices": "4.3.0",
+          "xunit": "2.2.0"
+        },
+        "compile": {
+          "lib/netcoreapp1.1/TestToolsToXunitProxy.dll": {}
+        },
+        "runtime": {
+          "lib/netcoreapp1.1/TestToolsToXunitProxy.dll": {}
+        }
+      },
       "xunit/2.3.1": {
         "type": "package",
         "dependencies": {
@@ -2689,7 +2703,6 @@
           "Microsoft.EntityFrameworkCore.Design": "2.2.0-preview3-35497",
           "Microsoft.EntityFrameworkCore.Tools": "2.2.0-preview3-35497",
           "Microsoft.EntityFrameworkCore.Tools.DotNet": "2.1.0-preview1-final",
-          "Microsoft.NETCore.App": "2.1.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "2.2.0-preview1"
         },
         "compile": {
@@ -8144,6 +8157,22 @@
         "system.xml.xpath.xmldocument.nuspec"
       ]
     },
+    "TestToolsToXunitProxy/0.0.4": {
+      "sha512": "NTYBS/OVJPihOAwBxbW0rwmpvjys2X4ybnE+etIEQCZOQssdQhFCj5JNDOMD3dmcRPs/6eki9Gxk56r58SsT/g==",
+      "type": "package",
+      "path": "testtoolstoxunitproxy/0.0.4",
+      "files": [
+        ".signature.p7s",
+        "lib/net20/TestToolsToXunitProxy.dll",
+        "lib/net35/TestToolsToXunitProxy.dll",
+        "lib/net40/TestToolsToXunitProxy.dll",
+        "lib/net45/TestToolsToXunitProxy.dll",
+        "lib/netcoreapp1.1/TestToolsToXunitProxy.dll",
+        "lib/netstandard1.3/TestToolsToXunitProxy.dll",
+        "testtoolstoxunitproxy.0.0.4.nupkg.sha512",
+        "testtoolstoxunitproxy.nuspec"
+      ]
+    },
     "xunit/2.3.1": {
       "sha512": "cfU3mctX9JfTb21YuG2kVXy4LsuIZrP7+YwJct04eh9p3Ykq+iAlGhCYWjvo6upIFpE1dBKGXEdfczIPz6Sy3w==",
       "type": "package",
@@ -8284,6 +8313,7 @@
       "Microsoft.NETCore.App >= 2.1.0",
       "Moq >= 4.10.1",
       "System.Data.SqlClient >= 4.6.0",
+      "TestToolsToXunitProxy >= 0.0.4",
       "xunit >= 2.3.1",
       "xunit.core >= 2.4.1",
       "xunit.runner.visualstudio >= 2.3.1"
@@ -8364,6 +8394,10 @@
             "target": "Package",
             "version": "[4.6.0, )"
           },
+          "TestToolsToXunitProxy": {
+            "target": "Package",
+            "version": "[0.0.4, )"
+          },
           "xunit": {
             "target": "Package",
             "version": "[2.3.1, )"
@@ -8390,7 +8424,7 @@
       "code": "NU1608",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Версия обнаруженного пакета нарушает ограничение зависимости: xunit 2.3.1 требуется xunit.core (= 2.3.1), но в результате разрешения получена версия xunit.core 2.4.1.",
+      "message": "Detected package version outside of dependency constraint: xunit 2.3.1 requires xunit.core (= 2.3.1) but version xunit.core 2.4.1 was resolved.",
       "libraryId": "xunit.core",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.1"
@@ -8400,7 +8434,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"Microsoft.AspNet.Mvc 5.2.7\" был восстановлен с помощью \".NETFramework,Version=v4.6.1\", а не целевой платформы проекта \".NETCoreApp,Version=v2.1\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Package 'Microsoft.AspNet.Mvc 5.2.7' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.Mvc",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.1"
@@ -8410,7 +8444,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"Microsoft.AspNet.Razor 3.2.7\" был восстановлен с помощью \".NETFramework,Version=v4.6.1\", а не целевой платформы проекта \".NETCoreApp,Version=v2.1\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Package 'Microsoft.AspNet.Razor 3.2.7' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.Razor",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.1"
@@ -8420,7 +8454,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"Microsoft.AspNet.WebPages 3.2.7\" был восстановлен с помощью \".NETFramework,Version=v4.6.1\", а не целевой платформы проекта \".NETCoreApp,Version=v2.1\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Package 'Microsoft.AspNet.WebPages 3.2.7' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.AspNet.WebPages",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.1"
@@ -8430,7 +8464,7 @@
       "code": "NU1701",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Пакет \"Microsoft.Web.Infrastructure 1.0.0\" был восстановлен с помощью \".NETFramework,Version=v4.6.1\", а не целевой платформы проекта \".NETCoreApp,Version=v2.1\". Этот пакет может быть не полностью совместим с вашим проектом.",
+      "message": "Package 'Microsoft.Web.Infrastructure 1.0.0' was restored using '.NETFramework,Version=v4.6.1' instead of the project target framework '.NETCoreApp,Version=v2.1'. This package may not be fully compatible with your project.",
       "libraryId": "Microsoft.Web.Infrastructure",
       "targetGraphs": [
         ".NETCoreApp,Version=v2.1"
