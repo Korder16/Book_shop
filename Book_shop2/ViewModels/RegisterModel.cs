@@ -8,6 +8,7 @@ namespace Book_shop2.ViewModels
         
         [DataType(DataType.Text)]
         [Required(ErrorMessage ="Не указано имя пользователя")]
+        [RegularExpression(@"[a-zA-Z]{3,50}", ErrorMessage = "Некорректное имя пользователя")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Длина строки должна быть от 3 до 50 символов")]
         public string Name { get; set; }
          

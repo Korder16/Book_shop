@@ -56,9 +56,7 @@ namespace Book_shop2.Tests.Unit_Tests
         
         
         [Theory]
-        [InlineData(1, 1, 300, 7)]
-        [InlineData(3, 4, 250, 8)]
-        [InlineData(3, 3, 200, 9)]
+        [InlineData(1, 1, -12, 7)]
         public void DoNot_Create_Supply_With_NoValid_Model(int provider_id, int book_id, 
             int price, int count)
         {

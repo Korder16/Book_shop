@@ -249,6 +249,7 @@
           <e p="ProviderControllerTests.cs" t="Include" />
           <e p="PurchaseControllerTests.cs" t="Include" />
           <e p="SupplyControllerTests.cs" t="Include" />
+          <e p="UserControllerTests.cs" t="Include" />
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />

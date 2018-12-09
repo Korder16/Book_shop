@@ -4,6 +4,7 @@ namespace Book_shop2.ViewModels
 {
     public class LoginModel
     {
+        [RegularExpression(@"[a-zA-Z]{2,100}", ErrorMessage = "Некорректное имя пользователя")]
         [Required(ErrorMessage = "Не указано имя пользователя")]
         public string Name { get; set; }
         

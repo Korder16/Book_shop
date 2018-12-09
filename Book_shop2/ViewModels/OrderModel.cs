@@ -30,7 +30,7 @@ namespace Book_shop2.ViewModels
         [Required(ErrorMessage = "Не указана дата доставки заказа")]
         public string DateTo { get; set; }
         
-        [Range(0, 100000)]
+        [Range(1, 100000)]
         [Required(ErrorMessage = "Не указано количество")]
         public int Count { get; set; }
         
@@ -40,6 +40,7 @@ namespace Book_shop2.ViewModels
         public string Status { get; set; }
         
         [Required(ErrorMessage = "Не указан курьер")]
+        [RegularExpression(@"[a-zA-Z]{2,100}", ErrorMessage = "Некорректное имя курьера")]
         public string Courier { get; set; }
     }
 }

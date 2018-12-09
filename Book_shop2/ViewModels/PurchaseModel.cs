@@ -15,7 +15,7 @@ namespace Book_shop2.ViewModels
         [Required(ErrorMessage = "Не указана цена")]
         public int price { get; set; }
          
-        [Range(0, 100000)]
+        [Range(1, 100000)]
         [Required(ErrorMessage = "Не указано количество")]
         public int count { get; set; }
         

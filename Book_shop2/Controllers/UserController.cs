@@ -1,4 +1,5 @@
 using System.Linq;
+using Book_shop2.Helpers.IRepositories;
 using Book_shop2.Models;
 using Book_shop2.ViewModels;
 using Microsoft.AspNetCore.Mvc;
@@ -11,18 +12,20 @@ namespace Book_shop2.Controllers
 {
     public class UserController : Controller
     {
-        MyBookShopContext db;
+        private MyBookShopContext _db;
+        private IUserRepository _repo;
 
-        public UserController(MyBookShopContext context)
+        public UserController(MyBookShopContext context, IUserRepository r)
         {
-            db = context;
+            _db = context;
+            _repo = r;
         }
     
         // Список пользователей
         [Authorize(Roles = "Администратор")]
         public IActionResult Users()
         {
-            return View(db.Users.ToList());
+            return View(_db.Users.ToList());
         }
         
         // Редактирование информации о пользователе
@@ -30,7 +33,7 @@ namespace Book_shop2.Controllers
         [Authorize(Roles = "Администратор")]
         public IActionResult EditUser(int? id)
         {
-            user currentUser = db.Users.Find(id);
+            user currentUser = _db.Users.Find(id);
             
             if (currentUser != null)
             {
@@ -45,7 +48,7 @@ namespace Book_shop2.Controllers
                 };
             
                 // Заполянем список должностей
-                model.Roles = db.Roles.Select(r => new SelectListItem
+                model.Roles = _db.Roles.Select(r => new SelectListItem
                 {
                     Text = r.Name,
                     Value = r.Id.ToString()
@@ -74,14 +77,14 @@ namespace Book_shop2.Controllers
                 currentUser.RoleId = model.RoleId;
                 
                 // Обновляем информацию о пользователе
-                db.Entry(currentUser).State = EntityState.Modified;
-                db.SaveChanges();
+                _repo.UpdateUser(currentUser);
+                _repo.Save();
                 return RedirectToAction("Users", "User");
             }
             else
                 ModelState.AddModelError("","Некорректные данные");
 
-            return View();
+            return View(model);
         }
     }
 }
