@@ -1,17 +1,15 @@
-using System.Linq;
+using Book_shop2.Helpers.IRepositories;
 using Book_shop2.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Book_shop2.Controllers
 {
     public class ClientController : Controller
     {
-        private readonly IRepository _repository;
+        private readonly IClientRepository _repository;
         
-        public ClientController(IRepository r)
+        public ClientController(IClientRepository r)
         {
             _repository = r;
         }

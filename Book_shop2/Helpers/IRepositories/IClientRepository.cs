@@ -1,24 +1,20 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.Linq;
+using Book_shop2.Helpers.IRepositories;
+using Book_shop2.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Book_shop2.Models
+namespace Book_shop2.Helpers.IRepositories
 {
-    public interface IRepository
+    public interface IClientRepository : IRepository
     {
         IEnumerable<client> GetAllClients();
         client GetClient(int id);
         void CreateClient(client man);
         void UpdateClient(client man);
-        void Save();
-
-        user GetUser(int id);
     }
-    
-    public class ClientRepository : IRepository
+
+    public class ClientRepository : IClientRepository
     {
         private MyBookShopContext _db;
 
@@ -50,11 +46,6 @@ namespace Book_shop2.Models
         public void Save()
         {
             _db.SaveChanges();
-        }
-        
-        public user GetUser(int id)
-        {
-            return _db.Users.Find(id);
         }
     }
 }

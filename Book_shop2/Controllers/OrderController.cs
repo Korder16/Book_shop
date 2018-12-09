@@ -1,31 +1,34 @@
 using System;
 using System.Linq;
-using Book_shop2.Helpers;
 using Book_shop2.Models;
+using Book_shop2.Helpers;
+using Book_shop2.Helpers.IRepositories;
 using Book_shop2.ViewModels;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Book_shop2.Controllers
 {
     public class OrderController : Controller
     {
-        MyBookShopContext db;
+        private MyBookShopContext _db;
+        private IOrderRepository _repo;
         
-        public OrderController(MyBookShopContext context)
+        public OrderController(MyBookShopContext context, IOrderRepository r)
         {
-            db = context;
+            _db = context;
+            _repo = r;
         }
         
         // Список заказов
         [Authorize(Roles = "Работник магазина")]
         public IActionResult Orders()
         {
-            var orders = from o in db.Orders
-                join b in db.Books on o.Book_id equals b.id
-                join c in db.Clients on o.Customer_id equals c.Id
+            var orders = from o in _db.Orders
+                join b in _db.Books on o.Book_id equals b.id
+                join c in _db.Clients on o.Customer_id equals c.Id
                 select new SqlListOrders()
                 {
                     Id = o.Id,
@@ -55,7 +58,7 @@ namespace Book_shop2.Controllers
             OrderModel model = new OrderModel();
             
             // Заполняем выпадающий список Books книгами
-            model.Books = db.Books.Select(b => new SelectListItem
+            model.Books = _db.Books.Select(b => new SelectListItem
             {
                 Text = b.name,
                 Value = b.id.ToString()
@@ -63,7 +66,7 @@ namespace Book_shop2.Controllers
 
             
             // Заполняем выпадающий список Clients клиентами
-            model.Clients = db.Clients.Select(c => new SelectListItem
+            model.Clients = _db.Clients.Select(c => new SelectListItem
             {
                 Text = c.Name,
                 Value = c.Id.ToString()
@@ -71,7 +74,7 @@ namespace Book_shop2.Controllers
             
             
             // Заполняем выпадающие список Users пользователями
-            model.Users = db.Users.Where(u=> u.Activity == "Работает" && u.RoleId == 2)
+            model.Users = _db.Users.Where(u=> u.Activity == "Работает" && u.RoleId == 2)
                 .Select(u => new SelectListItem
             {
                 Text = u.Name,
@@ -86,7 +89,7 @@ namespace Book_shop2.Controllers
         [Authorize(Roles = "Работник магазина")]
         public IActionResult CreateOrder(OrderModel model)
         {
-            var currentBook = db.Books.First(b => b.id == model.BookId);
+            var currentBook = _db.Books.First(b => b.id == model.BookId);
             
             if (ModelState.IsValid)
             {
@@ -106,13 +109,15 @@ namespace Book_shop2.Controllers
                 };
                 
                 // Добавляем заказ
-                db.Orders.Add(currentOrder);
+                //_db.Orders.Add(currentOrder);
+                _repo.CreateOrder(currentOrder);
                 
                 // Уменьшаем количество книг на складе
                 currentBook.count -= model.Count;
-                db.Entry(currentBook).State = EntityState.Modified;
+                _db.Entry(currentBook).State = EntityState.Modified;
                 
-                db.SaveChanges();
+                //_db.SaveChanges();
+                _repo.Save();
                 return RedirectToAction("Orders", "Order");
             }
             else
@@ -127,7 +132,7 @@ namespace Book_shop2.Controllers
         [Authorize(Roles = "Работник магазина")]
         public IActionResult EditOrder(int? id)
         {
-            order currentOrder = db.Orders.Find(id);
+            order currentOrder = _db.Orders.Find(id);
             
             if (currentOrder != null)
             {
@@ -147,7 +152,7 @@ namespace Book_shop2.Controllers
                 };
             
                 // Заполняем выпадающий список Books книгами
-                model.Books = db.Books.Select(b => new SelectListItem
+                model.Books = _db.Books.Select(b => new SelectListItem
                 {
                     Text = b.name,
                     Value = b.id.ToString()
@@ -155,7 +160,7 @@ namespace Book_shop2.Controllers
 
             
                 // Заполняем выпадающий список Clients клиентами
-                model.Clients = db.Clients.Select(c => new SelectListItem
+                model.Clients = _db.Clients.Select(c => new SelectListItem
                 {
                     Text = c.Name,
                     Value = c.Id.ToString()
@@ -163,7 +168,7 @@ namespace Book_shop2.Controllers
             
             
                 // Заполняем выпадающие список Users пользователями
-                model.Users = db.Users.Where(u=> u.Activity == "Работает" && u.RoleId == 2)
+                model.Users = _db.Users.Where(u=> u.Activity == "Работает" && u.RoleId == 2)
                     .Select(u => new SelectListItem
                     {
                         Text = u.Name,
@@ -200,14 +205,16 @@ namespace Book_shop2.Controllers
                 };
                 
                 // Обновляем информацию о заказе
-                db.Entry(currentOrder).State = EntityState.Modified;
-                db.SaveChanges();
+                //_db.Entry(currentOrder).State = EntityState.Modified;
+                //_db.SaveChanges();
+                _repo.UpdateOrder(currentOrder);
+                _repo.Save();
                 return RedirectToAction("Orders", "Order");
             }
             else
                 ModelState.AddModelError("","Некорректные данные");
 
-            return View();
+            return View(model);
         }
     }
 }

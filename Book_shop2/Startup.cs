@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Book_shop2.Helpers;
+using Book_shop2.Helpers.IRepositories;
 using Book_shop2.Models;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
@@ -34,12 +36,15 @@ namespace Book_shop2
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddScoped<IRepository, ClientRepository>();
-            /*
-            services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Latest)
-                .AddRazorPagesOptions(options => { options.Conventions.AuthorizePage("/Account/Login"); });
-            */
+            services.AddScoped<IClientRepository, ClientRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IBookRepository, BookRepository>();
+            services.AddScoped<IHomeRepository, HomeRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IProviderRepository, ProviderRepository>();
+            services.AddScoped<IPurchaseRepository, PurchaseRepository>();
+            services.AddScoped<ISupplyRepository, SupplyRepository>();
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddEntityFrameworkNpgsql().AddDbContext<MyBookShopContext>
                 (opt => opt.UseNpgsql(Configuration.GetConnectionString("MyBookShopConnection")));

@@ -1,26 +1,24 @@
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc;
-using System.Security.Claims;
-using Book_shop2.ViewModels;
 using Book_shop2.Models;
+using Book_shop2.ViewModels;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using Book_shop2.Helpers.IRepositories;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc.Rendering;
-
-//using Microsoft.AspNetCore.Identity.UI.Pages.Account.Internal;
 
 namespace Book_shop2.Controllers
 {
     public class AccountController : Controller
     {
         private MyBookShopContext _db;
-        private IRepository _repo;
+        private IUserRepository _repo;
 
-        public AccountController(MyBookShopContext context, IRepository r)
+        public AccountController(MyBookShopContext context, IUserRepository r)
         {
             _db = context;
             _repo = r;
@@ -83,11 +81,12 @@ namespace Book_shop2.Controllers
         [HttpPost]
         [Authorize(Roles = "Администратор")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterModel model)
+        public IActionResult Register(RegisterModel model)
         {
             if(ModelState.IsValid)
             {
-                user user = await _db.Users.FirstOrDefaultAsync(u => u.Name == model.Name);
+                //user user = await _db.Users.FirstOrDefaultAsync(u => u.Name == model.Name);
+                user user = _db.Users.FirstOrDefault(u => u.Name == model.Name);
                 if (user == null)
                 {
                     
@@ -95,13 +94,17 @@ namespace Book_shop2.Controllers
                     
                     user = new user {Name = model.Name, Password = model.Password, 
                         Email = model.Email, Activity = model.Activity, RoleId = 2};
-                    var userRole = await _db.Roles.FirstOrDefaultAsync(r => r.Name == "Работник магазина");
-               
+                    //var userRole = await _db.Roles.FirstOrDefaultAsync(r => r.Name == "Работник магазина");
+                    var userRole = _db.Roles.FirstOrDefault(r => r.Name == "Работник магазина");
+                    
                     if (userRole != null)
                         user.role = userRole;
 
-                    _db.Users.Add(user);
-                    await _db.SaveChangesAsync();
+                    //_db.Users.Add(user);
+                    _repo.CreateUser(user);
+                    //await _db.SaveChangesAsync();
+                    //_db.SaveChanges();
+                    _repo.Save();
 
                     return RedirectToAction("Users", "User");
                 }

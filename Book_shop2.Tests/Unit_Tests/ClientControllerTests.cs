@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Book_shop2.Controllers;
@@ -10,19 +9,20 @@ using TestToolsToXunitProxy;
 using Xunit;
 using Assert = Xunit.Assert;
 using ViewResult = Microsoft.AspNetCore.Mvc.ViewResult;
+using Book_shop2.Helpers.IRepositories;
 
 
-namespace Book_shop2.Tests
+namespace Book_shop2.Tests.Unit_Tests
 {
     [TestClass]
     public class ClientControllerTests
     {
-        private MyBookShopContext _db = new MyBookShopContext(new DbContextOptions<MyBookShopContext>());
+        //private MyBookShopContext _db = new MyBookShopContext(new DbContextOptions<MyBookShopContext>());
         [Fact]
         public void Clients_Correct_View_Page()
         {
             // Arrange
-            var mock = new Mock<IRepository>();
+            var mock = new Mock<IClientRepository>();
             mock.Setup(repo => repo.GetAllClients()).Returns(GetClients());
             var controller = new ClientController(mock.Object);
             
@@ -55,7 +55,7 @@ namespace Book_shop2.Tests
         public void Create_Client_Redirects_And_AddClient(string name, string phone, string email, string adress)
         {
             // Arrange
-            var mock = new Mock<IRepository>();
+            var mock = new Mock<IClientRepository>();
             var controller = new ClientController(mock.Object);
             client newClient = new client()
             {
@@ -77,7 +77,7 @@ namespace Book_shop2.Tests
         public void Create_Client_Returns_ViewResult_With_ClientModel()
         {
             // Arrange
-            var mock = new Mock<IRepository>();
+            var mock = new Mock<IClientRepository>();
             var controller = new ClientController(mock.Object);
             controller.ModelState.AddModelError("Name", "Required");
             client newClient = new client();
@@ -92,14 +92,14 @@ namespace Book_shop2.Tests
         }
 
         [Theory]
-        [InlineData(1, "Владмир", "8(929)666-33-22", "vladimir@mail.ru", "г. Москва, ул. Покровская, 15")]
-        [InlineData(2, "Иванов Иван Иванович", "8(929)999-99-99", "ivanovii@mail.ru", "г. Москва, ул. Покровская, 9")]
-        [InlineData(3, "Иванов Алексей Иванович", "8(916)123-23-35", "ivan@yandex.ru", "г. Москва, ул. Покровская, 17")]
-        [InlineData(4, "Петров Егор Олегович", "8(800)555-35-35", "asdf@mail.ru", "г. Москва, ул. Покровская, 3")]
+        [InlineData(1, "Владмир", "8(929)666-33-22", "vladimir@mail.ru", "г. Москва, ул. Покровская, 13")]
+        [InlineData(2, "Иванов Иван Иванович", "8(929)999-99-99", "ivanovii@mail.ru", "г. Москва, ул. Покровская, 18")]
+        [InlineData(3, "Иванов Алексей Иванович", "8(916)123-23-35", "ivan@yandex.ru", "г. Москва, ул. Покровская, 13")]
+        [InlineData(4, "Петров Егор Олегович", "8(800)555-35-35", "asdf@mail.ru", "г. Москва, ул. Покровская, 18")]
         public void Edit_Client_Redirects_And_EditClient(int testClientId, string name, string phone, string email, string adress)
         {
             // Arrange
-            var mock = new Mock<IRepository>();
+            var mock = new Mock<IClientRepository>();
             mock.Setup(repo => repo.GetClient(testClientId))
                 .Returns(GetClients().FirstOrDefault(cli => cli.Id == testClientId));
             var controller = new ClientController(mock.Object);

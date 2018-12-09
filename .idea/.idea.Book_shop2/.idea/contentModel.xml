@@ -26,13 +26,26 @@
           <e p="UserController.cs" t="Include" />
         </e>
         <e p="Helpers" t="Include">
-          <e p="SqlListOrders.cs" t="Include" />
-          <e p="SqlListPurchases.cs" t="Include" />
-          <e p="SqlRequestOrder.cs" t="Include" />
-          <e p="SqlRequestPurchase.cs" t="Include" />
-          <e p="SqlRequestStatistics.cs" t="Include" />
-          <e p="SqlRequestSupplies.cs" t="Include" />
-          <e p="SqlRequestTest.cs" t="Include" />
+          <e p="IRepositories" t="Include">
+            <e p="IBookRepository.cs" t="Include" />
+            <e p="IClientRepository.cs" t="Include" />
+            <e p="IHomeRepository.cs" t="Include" />
+            <e p="IOrderRepository.cs" t="Include" />
+            <e p="IProviderRepository.cs" t="Include" />
+            <e p="IPurchaseRepository.cs" t="Include" />
+            <e p="IRepository.cs" t="Include" />
+            <e p="ISupplyRepository.cs" t="Include" />
+            <e p="IUserRepository.cs" t="Include" />
+          </e>
+          <e p="SqlRequests" t="Include">
+            <e p="SqlListOrders.cs" t="Include" />
+            <e p="SqlListPurchases.cs" t="Include" />
+            <e p="SqlRequestOrder.cs" t="Include" />
+            <e p="SqlRequestPurchase.cs" t="Include" />
+            <e p="SqlRequestStatistics.cs" t="Include" />
+            <e p="SqlRequestSupplies.cs" t="Include" />
+            <e p="SqlRequestTest.cs" t="Include" />
+          </e>
         </e>
         <e p="Migrations" t="Include">
           <e p="20181120154251_Beta7Migr.cs" t="Include" />
@@ -59,7 +72,6 @@
           <e p="book.cs" t="Include" />
           <e p="client.cs" t="Include" />
           <e p="ErrorViewModel.cs" t="Include" />
-          <e p="IRepository.cs" t="Include" />
           <e p="MyBookShopContext.cs" t="Include" />
           <e p="order.cs" t="Include" />
           <e p="provider.cs" t="Include" />
@@ -214,11 +226,9 @@
       </e>
       <e p="Book_shop2.sln" t="IncludeFlat" />
       <e p="Book_shop2.Tests" t="IncludeRecursive">
-        <e p="AccountControllerTests.cs" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="Bin" t="ExcludeRecursive" />
         <e p="Book_shop2.Tests.csproj" t="IncludeRecursive" />
-        <e p="ClientControllerTests.cs" t="Include" />
         <e p="Integrating_Selenium_Tests" t="Include">
           <e p="Book_shop2_selenium_integrating_tests.side" t="Include" />
         </e>
@@ -229,6 +239,16 @@
               <e p="Book_shop2.Tests.Program.cs" t="Include" />
             </e>
           </e>
+        </e>
+        <e p="Unit_Tests" t="Include">
+          <e p="AccountControllerTests.cs" t="Include" />
+          <e p="BookControllerTests.cs" t="Include" />
+          <e p="ClientControllerTests.cs" t="Include" />
+          <e p="HomeControllerTests.cs" t="Include" />
+          <e p="OrderControllerTests.cs" t="Include" />
+          <e p="ProviderControllerTests.cs" t="Include" />
+          <e p="PurchaseControllerTests.cs" t="Include" />
+          <e p="SupplyControllerTests.cs" t="Include" />
         </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />

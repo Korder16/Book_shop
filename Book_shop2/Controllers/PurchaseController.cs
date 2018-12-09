@@ -1,24 +1,25 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net.Mime;
-using Book_shop2.Helpers;
 using Book_shop2.Models;
+using Book_shop2.Helpers;
+using Book_shop2.Helpers.IRepositories;
 using Book_shop2.ViewModels;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Book_shop2.Controllers
 {
     public class PurchaseController : Controller
     {
-        MyBookShopContext db;
+        MyBookShopContext _db;
+        private IPurchaseRepository _repo;
         
-        public PurchaseController(MyBookShopContext context)
+        public PurchaseController(MyBookShopContext context, IPurchaseRepository r)
         {
-            db = context;
+            _db = context;
+            _repo = r;
         }
         
         // Список покупок
@@ -26,9 +27,9 @@ namespace Book_shop2.Controllers
         public IActionResult Purchases()
         {
             
-            var purchase = from p in db.Purchases
-                join b in db.Books on p.book_id equals b.id
-                join u in db.Users on p.stuff_id equals u.Id
+            var purchase = from p in _db.Purchases
+                join b in _db.Books on p.book_id equals b.id
+                join u in _db.Users on p.stuff_id equals u.Id
                 select new SqlListPurchases()
                 {
                     Name = b.name,
@@ -53,14 +54,14 @@ namespace Book_shop2.Controllers
             PurchaseModel model = new PurchaseModel();
             
             // Заполняем выпадающий список Books книгами
-            model.Books = db.Books.Select(b => new SelectListItem
+            model.Books = _db.Books.Select(b => new SelectListItem
             {
                 Text = b.name,
                 Value = b.id.ToString()
             }).ToList();
 
             // Заполняем выпадающие список Users пользователями
-            model.Users = db.Users.Where(u => u.RoleId == 2).Select(u => new SelectListItem
+            model.Users = _db.Users.Where(u => u.RoleId == 2).Select(u => new SelectListItem
             {
                 Text = u.Name,
                 Value = u.Id.ToString()
@@ -73,7 +74,7 @@ namespace Book_shop2.Controllers
         [Authorize(Roles = "Работник магазина")]
         public IActionResult CreatePurchase(PurchaseModel model)
         {
-            var currentBook = db.Books.First(b => b.id == model.Book_id);
+            var currentBook = _db.Books.First(b => b.id == model.Book_id);
             
             if (model.count <= currentBook.count)
             {
@@ -92,13 +93,15 @@ namespace Book_shop2.Controllers
                     };
                     
                     // Добавление новой покупки
-                    db.Purchases.Add(currentPurchase);
+                    //_db.Purchases.Add(currentPurchase);
+                    _repo.CreatePurchase(currentPurchase);
 
                     // Уменьшаем количество книг на складе
                     currentBook.count -= model.count;
-                    db.Entry(currentBook).State = EntityState.Modified;
+                    _db.Entry(currentBook).State = EntityState.Modified;
                     
-                    db.SaveChanges();
+                    //_db.SaveChanges();
+                    _repo.Save();
                     return RedirectToAction("Purchases", "Purchase");
                 }
                 else

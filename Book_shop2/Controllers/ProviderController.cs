@@ -1,24 +1,29 @@
+using System.Collections.Generic;
 using System.Linq;
+using Book_shop2.Helpers.IRepositories;
 using Book_shop2.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 namespace Book_shop2.Controllers
 {
     public class ProviderController : Controller
     {
-        MyBookShopContext db;
+        private MyBookShopContext _db;
+        private IProviderRepository _repo;
         
-        public ProviderController(MyBookShopContext context)
+        public ProviderController(MyBookShopContext context, IProviderRepository r)
         {
-            db = context;
+            _db = context;
+            _repo = r;
         }
         
         // Список поставщиков
         [Authorize(Roles = "Администратор")]
         public IActionResult Providers()
         {
-            return View(db.Providers.ToList());
+            return View(_db.Providers.ToList());
         }
         
         // Добавление поставщика
@@ -35,8 +40,10 @@ namespace Book_shop2.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Providers.Add(Provider);
-                db.SaveChanges();
+                //_db.Providers.Add(Provider);
+                //_db.SaveChanges();
+                _repo.CreateProvider(Provider);
+                _repo.Save();
                 return RedirectToAction("Providers", "Provider");
             } 
             else

@@ -19,7 +19,6 @@ namespace Book_shop2.Models
         [Required(ErrorMessage ="Не указан жанр книги")]
         public string genre { get; set; }
         
-        
         [Range(0, 2018)]
         [Required(ErrorMessage ="Не указан год издания")]
         public int year { get; set; }

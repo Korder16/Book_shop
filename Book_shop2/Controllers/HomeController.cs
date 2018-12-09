@@ -1,9 +1,10 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Linq;
-using Microsoft.AspNetCore.Mvc;
 using Book_shop2.Models;
 using Book_shop2.Helpers;
+using System.Diagnostics;
+using Book_shop2.Helpers.IRepositories;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 
 
@@ -11,34 +12,34 @@ namespace Book_shop2.Controllers
 {
     public class HomeController : Controller
     {
-        private MyBookShopContext db;
+        private MyBookShopContext _db;
+        private IHomeRepository _repo;
         
-        public HomeController(MyBookShopContext context)
+        public HomeController(MyBookShopContext context, IHomeRepository r)
         {
-            db = context;
+            _db = context;
+            _repo = r;
         }
         
         // Статистика по работникам книжного магазина
         [Authorize(Roles = "Администратор")]
         public IActionResult Statistics()
         {
-            ViewData["Message"] = "Hello!";
 
-
-            double countAllOrders = db.Orders.Count();
+            double countAllOrders = _db.Orders.Count();
 
             // Формируем статистику по продавцам
-            var purchaseStatistics = db.Users.GroupJoin(
-                db.Purchases,
+            var purchaseStatistics = _db.Users.GroupJoin(
+                _db.Purchases,
                 u => u.Id,
                 p => p.stuff_id,
                 (users, purchases) => new SqlRequestStatistics
                 {
                     Name = users.Name,
-                    PurchasesCount = db.Purchases.Count(pp => pp.stuff_id == users.Id),
-                    OrdersCount = db.Orders.Count(o => o.Stuff_id == users.Id),
-                    SuccessOrdersCount = db.Orders.Count(o => o.Stuff_id == users.Id && o.Status == "Доставлен"),
-                    OrdersPercent = Math.Round(db.Orders
+                    PurchasesCount = _db.Purchases.Count(pp => pp.stuff_id == users.Id),
+                    OrdersCount = _db.Orders.Count(o => o.Stuff_id == users.Id),
+                    SuccessOrdersCount = _db.Orders.Count(o => o.Stuff_id == users.Id && o.Status == "Доставлен"),
+                    OrdersPercent = Math.Round(_db.Orders
                                                    .Count(o => o.Stuff_id == users.Id
                                                                && o.Status == "Доставлен")
                                                / countAllOrders * 100.0)

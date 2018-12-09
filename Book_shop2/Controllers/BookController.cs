@@ -1,25 +1,28 @@
 using System.Linq;
+using Book_shop2.Helpers.IRepositories;
 using Book_shop2.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace Book_shop2.Controllers
 {
     public class BookController : Controller
     {
-        MyBookShopContext db;
+        private MyBookShopContext _db;
+        private IBookRepository _repo;
         
-        public BookController(MyBookShopContext context)
+        public BookController(MyBookShopContext context, IBookRepository r)
         {
-            db = context;
+            _db = context;
+            _repo = r;
         }
         
         // Список книг
         [Authorize(Roles = "Работник магазина")]
         public IActionResult Books()
         {
-            return View(db.Books.ToList());
+            return View(_db.Books.ToList());
         }
         
         // Добавление книги
@@ -27,7 +30,7 @@ namespace Book_shop2.Controllers
         [Authorize(Roles = "Работник магазина")]
         public IActionResult CreateBook()
         {
-            ViewBag.Books = db.Books.ToList();
+            //ViewBag.Books = _db.Books.ToList();
             return View();
         }
 
@@ -35,9 +38,16 @@ namespace Book_shop2.Controllers
         [Authorize(Roles = "Работник магазина")]
         public IActionResult CreateBook(book Book)
         {
-            db.Books.Add(Book);
-            db.SaveChanges();
-            return RedirectToAction("Books", "Book");
+            if (ModelState.IsValid)
+            {
+                _repo.CreateBook(Book);
+                _repo.Save();
+                return RedirectToAction("Books", "Book");
+            }
+            else
+                ModelState.AddModelError("","Некорректные данные");
+
+            return View(Book);
         }
     }
 }
