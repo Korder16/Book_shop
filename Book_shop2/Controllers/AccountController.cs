@@ -17,11 +17,13 @@ namespace Book_shop2.Controllers
 {
     public class AccountController : Controller
     {
-        private MyBookShopContext db;
+        private MyBookShopContext _db;
+        private IRepository _repo;
 
-        public AccountController(MyBookShopContext context)
+        public AccountController(MyBookShopContext context, IRepository r)
         {
-            db = context;
+            _db = context;
+            _repo = r;
         }
 
         [HttpGet]
@@ -29,22 +31,24 @@ namespace Book_shop2.Controllers
         {
             return View();
         }
-
+        // async Task<IActionResult>
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginModel model)
+        public IActionResult Login(LoginModel model)
         {
             if (ModelState.IsValid)
             {
-                user user = await db.Users
+                //user user = await _db.Users
+                user user = _db.Users
                     .Include(u => u.role)
-                    .FirstOrDefaultAsync(u => u.Name == model.Name 
+                    .FirstOrDefault(u => u.Name == model.Name 
                                               && u.Password == model.Password && u.Activity == "Работает");
                 
                 if (user != null)
                 {
-                    await Authenticate(user); // аутентификация
-                    var roleId = db.Users.Where(u => u.Name.Contains(model.Name))
+                    //await Authenticate(user); // аутентификация
+                    Authenticate(user); // аутентификация
+                    var roleId = _db.Users.Where(u => u.Name.Contains(model.Name))
                         .Select(u=>u.RoleId).First();
                     
                     // Редирект на начальную страницу пользователя
@@ -83,7 +87,7 @@ namespace Book_shop2.Controllers
         {
             if(ModelState.IsValid)
             {
-                user user = await db.Users.FirstOrDefaultAsync(u => u.Name == model.Name);
+                user user = await _db.Users.FirstOrDefaultAsync(u => u.Name == model.Name);
                 if (user == null)
                 {
                     
@@ -91,13 +95,13 @@ namespace Book_shop2.Controllers
                     
                     user = new user {Name = model.Name, Password = model.Password, 
                         Email = model.Email, Activity = model.Activity, RoleId = 2};
-                    var userRole = await db.Roles.FirstOrDefaultAsync(r => r.Name == "Работник магазина");
+                    var userRole = await _db.Roles.FirstOrDefaultAsync(r => r.Name == "Работник магазина");
                
                     if (userRole != null)
                         user.role = userRole;
 
-                    db.Users.Add(user);
-                    await db.SaveChangesAsync();
+                    _db.Users.Add(user);
+                    await _db.SaveChangesAsync();
 
                     return RedirectToAction("Users", "User");
                 }

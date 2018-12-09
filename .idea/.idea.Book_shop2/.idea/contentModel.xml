@@ -214,10 +214,14 @@
       </e>
       <e p="Book_shop2.sln" t="IncludeFlat" />
       <e p="Book_shop2.Tests" t="IncludeRecursive">
+        <e p="AccountControllerTests.cs" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="Bin" t="ExcludeRecursive" />
         <e p="Book_shop2.Tests.csproj" t="IncludeRecursive" />
         <e p="ClientControllerTests.cs" t="Include" />
+        <e p="Integrating_Selenium_Tests" t="Include">
+          <e p="Book_shop2_selenium_integrating_tests.side" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp2.1" t="Include">

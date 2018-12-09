@@ -17,15 +17,8 @@ namespace Book_shop2.Tests
     [TestClass]
     public class ClientControllerTests
     {
-        
-        public void ClassInitialize()
-        {
-            var mock = new Mock<IRepository>();
-            var controller = new ClientController(mock.Object);
-        }
-        
-        
-        [TestMethod]
+        private MyBookShopContext _db = new MyBookShopContext(new DbContextOptions<MyBookShopContext>());
+        [Fact]
         public void Clients_Correct_View_Page()
         {
             // Arrange
@@ -54,18 +47,22 @@ namespace Book_shop2.Tests
             return clients;
         }
 
-        [Fact]
-        public void Create_Client_Redirects_And_AddClient()
+        [Theory]
+        [InlineData("Дмитрий Иванович", "8(800)526-35-35", "dmitry@gmail.com", "г. Моcква, ул. Тверская, д.12")]
+        [InlineData("Иванов Иван Иванович", "8(800)123-32-35", "dmitry@gmail.com", "г. Моcква, ул. Пушкинская, д.3")]
+        [InlineData("Иванов Алексей Иванович", "8(929)111-55-40", "alex@mail.com", "г. Моcква, Рубцовская наб., д.34")]
+        [InlineData("Петров Егор Олегович", "8(800)555-35-35", "egor@gmail.com", "г. Моcква, ул. Чистые пруды, д.5")]
+        public void Create_Client_Redirects_And_AddClient(string name, string phone, string email, string adress)
         {
             // Arrange
             var mock = new Mock<IRepository>();
             var controller = new ClientController(mock.Object);
             client newClient = new client()
             {
-                Name = "Дмитрий Иванович",
-                Phone = "8(800)555-35-35",
-                Email = "dmitry@gmail.com",
-                Adress = "г. Мсоква, ул. Тверская, д.12"
+                Name = name,
+                Phone = phone,
+                Email = email,
+                Adress = adress
             };
             
             // Act
@@ -94,11 +91,14 @@ namespace Book_shop2.Tests
             
         }
 
-        [Fact]
-        public void Edit_Client_Redirects_And_EditClient()
+        [Theory]
+        [InlineData(1, "Владмир", "8(929)666-33-22", "vladimir@mail.ru", "г. Москва, ул. Покровская, 15")]
+        [InlineData(2, "Иванов Иван Иванович", "8(929)999-99-99", "ivanovii@mail.ru", "г. Москва, ул. Покровская, 9")]
+        [InlineData(3, "Иванов Алексей Иванович", "8(916)123-23-35", "ivan@yandex.ru", "г. Москва, ул. Покровская, 17")]
+        [InlineData(4, "Петров Егор Олегович", "8(800)555-35-35", "asdf@mail.ru", "г. Москва, ул. Покровская, 3")]
+        public void Edit_Client_Redirects_And_EditClient(int testClientId, string name, string phone, string email, string adress)
         {
             // Arrange
-            int testClientId = 1;
             var mock = new Mock<IRepository>();
             mock.Setup(repo => repo.GetClient(testClientId))
                 .Returns(GetClients().FirstOrDefault(cli => cli.Id == testClientId));
@@ -110,10 +110,10 @@ namespace Book_shop2.Tests
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
             var model = Assert.IsType<client>(viewResult.ViewData.Model);
-            Assert.Equal("Владмир", model.Name);
-            Assert.Equal("8(929)666-33-22", model.Phone);
-            Assert.Equal("vladimir@mail.ru", model.Email);
-            Assert.Equal("г. Москва, ул. Покровская, 15", model.Adress);
+            Assert.Equal(name, model.Name);
+            Assert.Equal(phone, model.Phone);
+            Assert.Equal(email, model.Email);
+            Assert.Equal(adress, model.Adress);
         }
     }
 }

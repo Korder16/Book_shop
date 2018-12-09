@@ -14,6 +14,8 @@ namespace Book_shop2.Models
         void CreateClient(client man);
         void UpdateClient(client man);
         void Save();
+
+        user GetUser(int id);
     }
     
     public class ClientRepository : IRepository
@@ -48,6 +50,11 @@ namespace Book_shop2.Models
         public void Save()
         {
             _db.SaveChanges();
+        }
+        
+        public user GetUser(int id)
+        {
+            return _db.Users.Find(id);
         }
     }
 }

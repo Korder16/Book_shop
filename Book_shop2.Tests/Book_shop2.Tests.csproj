@@ -9,9 +9,13 @@
     <ItemGroup>
         <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
         <PackageReference Include="Microsoft.AspNetCore.HttpsPolicy" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="2.2.0" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
         <PackageReference Include="Moq" Version="4.10.1" />
+        <PackageReference Include="Selenium.Firefox.WebDriver" Version="0.22.0" />
+        <PackageReference Include="Selenium.RC" Version="3.1.0" />
+        <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
         <PackageReference Include="System.Data.SqlClient" Version="4.6.0" />
         <PackageReference Include="TestToolsToXunitProxy" Version="0.0.4" />
         <PackageReference Include="xunit" Version="2.3.1" />

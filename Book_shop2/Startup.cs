@@ -35,8 +35,11 @@ namespace Book_shop2
             });
 
             services.AddScoped<IRepository, ClientRepository>();
-
-            
+            /*
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Latest)
+                .AddRazorPagesOptions(options => { options.Conventions.AuthorizePage("/Account/Login"); });
+            */
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             services.AddEntityFrameworkNpgsql().AddDbContext<MyBookShopContext>
                 (opt => opt.UseNpgsql(Configuration.GetConnectionString("MyBookShopConnection")));
