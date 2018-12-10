@@ -42,7 +42,7 @@ namespace Book_shop2.ViewModels
         public string Status { get; set; }
         
         [Required(ErrorMessage = "Не указан курьер")]
-        [RegularExpression(@"[a-zA-Z]{2,100}", ErrorMessage = "Некорректное имя курьера")]
+        [RegularExpression(@"[а-яА-Я\s.]{2,100}", ErrorMessage = "Некорректное имя курьера")]
         public string Courier { get; set; }
     }
 }

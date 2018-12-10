@@ -6,7 +6,7 @@ namespace Book_shop2.Models
     {
         public int Id { get; set; }
         
-        [RegularExpression(@"[a-zA-Z]{2,30}", ErrorMessage = "Некорректное имя")]
+        [RegularExpression(@"[а-яА-Я\s]{2,30}", ErrorMessage = "Некорректное имя")]
         [Required(ErrorMessage ="Не указано имя клиента")]
         public string Name { get; set; }
         
@@ -19,7 +19,7 @@ namespace Book_shop2.Models
         public string Email { get; set; }
         
         [Required(ErrorMessage ="Не указан номер телефона")]
-        [RegularExpression(@"[a-zA-Z]{2,100}", ErrorMessage = "Некорректный адрес")]
+        [RegularExpression(@"[а-яА-Я0-9\s.]{2,100}", ErrorMessage = "Некорректный адрес")]
         public string Adress { get; set; }
     }
 }

@@ -6,11 +6,11 @@ namespace Book_shop2.Models
     {
         public int id { get; set; }
         
-        [RegularExpression(@"[a-zA-Z]{2,100}", ErrorMessage = "Некорректное название книги")]
+        [RegularExpression(@"[а-яА-Я\s]{2,100}", ErrorMessage = "Некорректное название книги")]
         [Required(ErrorMessage ="Не указано название книги")]
         public string name { get; set; }
         
-        [RegularExpression(@"[a-zA-Z]{2,100}", ErrorMessage = "Некорректное имя автора")]
+        [RegularExpression(@"[а-яА-Я\s.]{2,100}", ErrorMessage = "Некорректное имя автора")]
         [Required(ErrorMessage ="Не указано имя автора")]
         public string author { get; set; }
         
@@ -18,7 +18,7 @@ namespace Book_shop2.Models
         [Required(ErrorMessage ="Не указана цена")]
         public int price { get; set; }
         
-        [RegularExpression(@"[a-zA-Z]{2,100}", ErrorMessage = "Некорректное название жанра")]
+        [RegularExpression(@"[а-яА-Я\s]{2,100}", ErrorMessage = "Некорректное название жанра")]
         [Required(ErrorMessage ="Не указан жанр книги")]
         public string genre { get; set; }
         

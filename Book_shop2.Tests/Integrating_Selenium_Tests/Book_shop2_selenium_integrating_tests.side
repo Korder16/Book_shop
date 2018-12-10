@@ -433,21 +433,14 @@
     "id": "8b144bd7-c33d-4d71-b6fa-4d0486fb26b6",
     "name": "Users_list_test",
     "commands": [{
-      "id": "fed878c4-e164-48f1-9232-2803f69bb0e6",
+      "id": "f4f14d01-cc14-4e37-927b-2bdcfa1fe243",
       "comment": "",
       "command": "open",
       "target": "https://localhost:5001/",
       "targets": [],
       "value": ""
     }, {
-      "id": "fb3662a1-7878-43bb-ae17-4f6604972047",
-      "comment": "",
-      "command": "setWindowSize",
-      "target": "1198x692",
-      "targets": [],
-      "value": ""
-    }, {
-      "id": "43ca8755-d91e-4acf-82de-8226c2e35fc3",
+      "id": "ccc9dea8-fff1-4397-9e28-5dc7caa3cec0",
       "comment": "",
       "command": "click",
       "target": "id=Name",
@@ -461,7 +454,7 @@
       ],
       "value": ""
     }, {
-      "id": "efdae62c-15cd-44bc-86c7-9017220379ce",
+      "id": "cd586518-656b-4e99-a3a4-fcd790cc738d",
       "comment": "",
       "command": "type",
       "target": "id=Name",
@@ -475,7 +468,7 @@
       ],
       "value": "Иван"
     }, {
-      "id": "6d688072-097a-4664-8952-c6f2189d8db4",
+      "id": "0ba37d5b-6d4d-4e41-88ff-f11df3fba3fe",
       "comment": "",
       "command": "type",
       "target": "id=Password",
@@ -489,21 +482,18 @@
       ],
       "value": "Ivan120"
     }, {
-      "id": "4d942c9b-cb2d-4257-a120-3c9585a053a4",
+      "id": "30da10bd-688e-49f7-84a7-2fe2f7138cae",
       "comment": "",
-      "command": "sendKeys",
-      "target": "id=Password",
+      "command": "click",
+      "target": "css=.btn",
       "targets": [
-        ["id=Password", "id"],
-        ["name=Password", "name"],
-        ["css=#Password", "css"],
-        ["css=#Password", "css:finder"],
-        ["xpath=//input[@id='Password']", "xpath:attributes"],
-        ["xpath=//div[2]/input", "xpath:position"]
+        ["css=.btn", "css:finder"],
+        ["xpath=//input[@value='Войти']", "xpath:attributes"],
+        ["xpath=//div[3]/input", "xpath:position"]
       ],
-      "value": "${KEY_ENTER}"
+      "value": ""
     }, {
-      "id": "48fb5986-ec55-4f6b-888b-1c615085edbc",
+      "id": "eb0cd6f7-7596-4183-a51d-df5840339c25",
       "comment": "",
       "command": "click",
       "target": "linkText=Пользователи",
@@ -515,7 +505,7 @@
       ],
       "value": ""
     }, {
-      "id": "961b69cb-b6a9-45f3-a0ea-d52ecaf89afa",
+      "id": "5fcbe0fb-61cc-4987-8e82-2e9c612349b5",
       "comment": "",
       "command": "click",
       "target": "linkText=Список пользователей",
@@ -528,7 +518,7 @@
       ],
       "value": ""
     }, {
-      "id": "da518c55-a032-4c3d-a273-0e7abe7c0ed6",
+      "id": "517b8145-46f7-4557-b2c7-83676b5805b6",
       "comment": "",
       "command": "click",
       "target": "linkText=Выйти",
@@ -541,26 +531,38 @@
         ["xpath=//li[4]/a", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "ccdf6a25-d42f-439c-829d-5ca611baf768",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1198x695",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "75ee7826-2dc3-443a-9175-78803ef6ce36",
     "name": "User_edit_test",
     "commands": [{
-      "id": "8bf3479c-f0d2-4835-98ca-d5a9993f036b",
+      "id": "b82953fe-927f-4914-b8b7-6e6076d73b5d",
       "comment": "",
       "command": "open",
       "target": "https://localhost:5001/",
       "targets": [],
       "value": ""
     }, {
-      "id": "7bda763b-f650-420e-bdfe-5ef3188c5e21",
+      "id": "4af734fd-65f5-43f7-8077-300c54c771e3",
       "comment": "",
-      "command": "setWindowSize",
-      "target": "1198x692",
-      "targets": [],
+      "command": "click",
+      "target": "css=form",
+      "targets": [
+        ["css=form", "css"],
+        ["css=form", "css:finder"],
+        ["xpath=//form[@action='/']", "xpath:attributes"],
+        ["xpath=//form", "xpath:position"]
+      ],
       "value": ""
     }, {
-      "id": "2cd90762-2fce-4bde-86d1-700900cd6ef4",
+      "id": "00fcea42-93df-4167-b528-6c00b540c8d5",
       "comment": "",
       "command": "click",
       "target": "id=Name",
@@ -574,7 +576,7 @@
       ],
       "value": ""
     }, {
-      "id": "2117d2e2-d54d-4bcf-be20-c672e609c8e0",
+      "id": "236035ec-85a9-4732-a2f7-94ff27ff2fbe",
       "comment": "",
       "command": "type",
       "target": "id=Name",
@@ -588,7 +590,7 @@
       ],
       "value": "Иван"
     }, {
-      "id": "1310b3e2-8c81-4d25-96fc-d2157a347230",
+      "id": "82b2d311-a4f4-4a6e-9428-e005de7658f0",
       "comment": "",
       "command": "type",
       "target": "id=Password",
@@ -602,7 +604,7 @@
       ],
       "value": "Ivan120"
     }, {
-      "id": "440a540e-e5a2-4657-908f-460c66d44743",
+      "id": "94f29076-c488-410d-a523-85d93cef8f55",
       "comment": "",
       "command": "sendKeys",
       "target": "id=Password",
@@ -616,7 +618,7 @@
       ],
       "value": "${KEY_ENTER}"
     }, {
-      "id": "6ee53d4c-e639-48bb-b3bb-62e5070045d3",
+      "id": "227aa318-0f2f-4f23-951d-6b218ec3dbf4",
       "comment": "",
       "command": "click",
       "target": "linkText=Пользователи",
@@ -628,7 +630,7 @@
       ],
       "value": ""
     }, {
-      "id": "ddb09a80-6c17-417a-85d6-9ffecf1a8c2a",
+      "id": "d127bd5b-2e74-49c4-85a8-1771faca1f42",
       "comment": "",
       "command": "click",
       "target": "linkText=Список пользователей",
@@ -641,21 +643,19 @@
       ],
       "value": ""
     }, {
-      "id": "cacccb0e-7a0d-4ad9-b76d-5df15b74eab4",
+      "id": "0fbd31bd-77e7-48a4-b306-6e4efe88ddf0",
       "comment": "",
       "command": "click",
-      "target": "linkText=Редактировать",
+      "target": "css=tr:nth-child(3) .btn",
       "targets": [
-        ["linkText=Редактировать", "linkText"],
-        ["css=a.btn.btn-primary", "css"],
-        ["css=tr:nth-child(2) .btn", "css:finder"],
-        ["xpath=//a[contains(text(),'Редактировать')]", "xpath:link"],
-        ["xpath=//a[contains(@href, '/User/EditUser/2')]", "xpath:href"],
-        ["xpath=//p/a", "xpath:position"]
+        ["css=tr:nth-child(3) .btn", "css:finder"],
+        ["xpath=(//a[contains(text(),'Редактировать')])[2]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/User/EditUser/18')]", "xpath:href"],
+        ["xpath=//tr[3]/td[5]/p/a", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "0059d787-b89b-4785-b53e-287f58e5502f",
+      "id": "b01a849c-2a6e-42b3-b472-25efa7464f29",
       "comment": "",
       "command": "click",
       "target": "id=Password",
@@ -669,7 +669,7 @@
       ],
       "value": ""
     }, {
-      "id": "25980006-2056-4559-a4c1-c579210dc7aa",
+      "id": "43ccc53e-980f-4757-9c0f-847f104f264d",
       "comment": "",
       "command": "type",
       "target": "id=Password",
@@ -681,9 +681,9 @@
         ["xpath=//input[@id='Password']", "xpath:attributes"],
         ["xpath=//div[2]/input", "xpath:position"]
       ],
-      "value": "Pavel123"
+      "value": "Max120"
     }, {
-      "id": "32571cfa-db15-4096-973b-4a6fe642799d",
+      "id": "3f456d50-e113-438d-805a-2682766b7fad",
       "comment": "",
       "command": "click",
       "target": "css=.btn",
@@ -694,7 +694,7 @@
       ],
       "value": ""
     }, {
-      "id": "6f73d1c6-7a84-4331-b33f-4b92641fe97d",
+      "id": "77db71bb-c9c9-4e52-b1d0-c6476e86daa5",
       "comment": "",
       "command": "click",
       "target": "linkText=Выйти",
@@ -707,19 +707,26 @@
         ["xpath=//li[4]/a", "xpath:position"]
       ],
       "value": ""
+    }, {
+      "id": "3e212bd9-6932-4771-a371-3dbea15d80c6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1198x695",
+      "targets": [],
+      "value": ""
     }]
   }, {
     "id": "c7d2ca6e-67bf-44c3-afd8-21cdba9e602f",
     "name": "User_add_test",
     "commands": [{
-      "id": "a5323d75-eff7-434d-9d36-b7aaa2d42da8",
+      "id": "c3025d91-57ec-4d19-8932-fae9ceed0b24",
       "comment": "",
       "command": "open",
       "target": "https://localhost:5001/",
       "targets": [],
       "value": ""
     }, {
-      "id": "4ff6083c-b4ac-42b2-bd86-3c2503a28adf",
+      "id": "20a5023b-82e7-48f4-8c25-f228c97b2c2f",
       "comment": "",
       "command": "click",
       "target": "id=Name",
@@ -733,7 +740,7 @@
       ],
       "value": ""
     }, {
-      "id": "9e917b4d-97d3-453c-bf9d-8fa20e846454",
+      "id": "bd4b55c0-5815-4c55-b22b-aa13f8c25c25",
       "comment": "",
       "command": "type",
       "target": "id=Name",
@@ -747,7 +754,7 @@
       ],
       "value": "Иван"
     }, {
-      "id": "5a034c4c-0e3d-4f98-9612-a12fcb24da2d",
+      "id": "d679e714-e376-4e50-b6e8-f51c722fd192",
       "comment": "",
       "command": "type",
       "target": "id=Password",
@@ -761,7 +768,7 @@
       ],
       "value": "Ivan120"
     }, {
-      "id": "b4326f17-8edd-43ff-8060-327927fad177",
+      "id": "30163551-cefe-4cd0-8f6e-7d4a9635c6d5",
       "comment": "",
       "command": "sendKeys",
       "target": "id=Password",
@@ -775,7 +782,7 @@
       ],
       "value": "${KEY_ENTER}"
     }, {
-      "id": "88555cee-e886-4fdb-b3ff-59270bf542ab",
+      "id": "8c832594-845c-4630-b965-ff9e7721a90c",
       "comment": "",
       "command": "click",
       "target": "linkText=Пользователи",
@@ -787,35 +794,20 @@
       ],
       "value": ""
     }, {
-      "id": "a2558ccc-a65a-44a9-90ac-604945c0baa4",
+      "id": "b8979e67-2425-4f0d-a1fe-7c5ca96ff5a5",
       "comment": "",
       "command": "click",
-      "target": "linkText=Список пользователей",
+      "target": "linkText=Добавить пользователя",
       "targets": [
-        ["linkText=Список пользователей", "linkText"],
-        ["css=.open .dropdown-item:nth-child(1)", "css:finder"],
-        ["xpath=//a[contains(text(),'Список пользователей')]", "xpath:link"],
-        ["xpath=//a[contains(@href, '/User/Users')]", "xpath:href"],
-        ["xpath=//li[3]/div/a", "xpath:position"]
+        ["linkText=Добавить пользователя", "linkText"],
+        ["css=.open .dropdown-item:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Добавить пользователя')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Account/Register')]", "xpath:href"],
+        ["xpath=//li[3]/div/a[2]", "xpath:position"]
       ],
       "value": ""
     }, {
-      "id": "53d370a2-25dd-41b5-9323-cde7354c4347",
-      "comment": "",
-      "command": "click",
-      "target": "linkText=Добавить нового пользователя",
-      "targets": [
-        ["linkText=Добавить нового пользователя", "linkText"],
-        ["css=a.btn.btn-success", "css"],
-        ["css=.btn-success", "css:finder"],
-        ["xpath=//a[contains(text(),'Добавить нового пользователя')]", "xpath:link"],
-        ["xpath=//a[@type='button']", "xpath:attributes"],
-        ["xpath=//a[contains(@href, '../Account/Register')]", "xpath:href"],
-        ["xpath=//div[2]/a", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "d125c89d-ade6-4fcf-9a1c-738a4c8a6b81",
+      "id": "31a9c556-4108-441a-b58d-924f0825a361",
       "comment": "",
       "command": "click",
       "target": "id=Name",
@@ -829,7 +821,7 @@
       ],
       "value": ""
     }, {
-      "id": "9933712f-74ef-46d9-9823-48541195d8d1",
+      "id": "f64b5c89-dd6f-45dd-9e1b-e3b93871eca5",
       "comment": "",
       "command": "type",
       "target": "id=Name",
@@ -843,7 +835,32 @@
       ],
       "value": "Панфилов Лев Дмитриевич"
     }, {
-      "id": "cbf53dc4-1381-4a94-9fc3-c9ab4ada5ca1",
+      "id": "e3eb377d-7a37-4cdd-bfe8-a26605fb7ad1",
+      "comment": "",
+      "command": "click",
+      "target": "css=div.container.body-content",
+      "targets": [
+        ["css=div.container.body-content", "css"],
+        ["css=.body-content", "css:finder"],
+        ["xpath=//body/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6dac48e6-a721-4fc6-818a-9337e3298732",
+      "comment": "",
+      "command": "click",
+      "target": "id=Password",
+      "targets": [
+        ["id=Password", "id"],
+        ["name=Password", "name"],
+        ["css=#Password", "css"],
+        ["css=#Password", "css:finder"],
+        ["xpath=//input[@id='Password']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7ab3610-b1f6-42e7-9b16-e1ac13f8c7de",
       "comment": "",
       "command": "type",
       "target": "id=Password",
@@ -857,7 +874,7 @@
       ],
       "value": "Lev123"
     }, {
-      "id": "66a7a7da-aad6-4cc4-9590-c338f3f9b28e",
+      "id": "4ce88afa-8f05-49ab-ad7d-dd267a946c79",
       "comment": "",
       "command": "type",
       "target": "id=ConfirmPassword",
@@ -871,7 +888,7 @@
       ],
       "value": "Lev123"
     }, {
-      "id": "1dee4180-ef1c-43e7-bb92-fbc906c0f1e1",
+      "id": "8b37940c-0400-4ec0-908e-dec06eabb97f",
       "comment": "",
       "command": "type",
       "target": "id=Email",
@@ -885,7 +902,7 @@
       ],
       "value": "lev@mail.ru"
     }, {
-      "id": "4e00ade3-3fbe-4528-acf3-fce46898efa8",
+      "id": "07e98e25-7bb8-41b4-8d1f-2c6a5acfabf4",
       "comment": "",
       "command": "click",
       "target": "css=.btn",
@@ -896,58 +913,7 @@
       ],
       "value": ""
     }, {
-      "id": "0b4764cb-1354-4194-8572-abac184cacd7",
-      "comment": "",
-      "command": "click",
-      "target": "css=tr:nth-child(4) .btn",
-      "targets": [
-        ["css=tr:nth-child(4) .btn", "css:finder"],
-        ["xpath=(//a[contains(text(),'Редактировать')])[3]", "xpath:link"],
-        ["xpath=//a[contains(@href, '/User/EditUser/22')]", "xpath:href"],
-        ["xpath=//tr[4]/td[5]/p/a", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "907cae78-0119-4356-ba15-f8786e33c21c",
-      "comment": "",
-      "command": "click",
-      "target": "id=Password",
-      "targets": [
-        ["id=Password", "id"],
-        ["name=Password", "name"],
-        ["css=#Password", "css"],
-        ["css=#Password", "css:finder"],
-        ["xpath=//input[@id='Password']", "xpath:attributes"],
-        ["xpath=//div[2]/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "e608502d-d8b3-4ba6-bd3a-3fa8a8af7c29",
-      "comment": "",
-      "command": "type",
-      "target": "id=Password",
-      "targets": [
-        ["id=Password", "id"],
-        ["name=Password", "name"],
-        ["css=#Password", "css"],
-        ["css=#Password", "css:finder"],
-        ["xpath=//input[@id='Password']", "xpath:attributes"],
-        ["xpath=//div[2]/input", "xpath:position"]
-      ],
-      "value": "Lev123"
-    }, {
-      "id": "5495fa8c-8a93-4367-8e69-31fe23d1fbf9",
-      "comment": "",
-      "command": "click",
-      "target": "css=.btn",
-      "targets": [
-        ["css=.btn", "css:finder"],
-        ["xpath=//input[@value='Изменить']", "xpath:attributes"],
-        ["xpath=//div[6]/input", "xpath:position"]
-      ],
-      "value": ""
-    }, {
-      "id": "5565775f-aea4-42f5-96bf-6d2fd06fd798",
+      "id": "c8163169-be06-4347-b495-d4fbb535c227",
       "comment": "",
       "command": "click",
       "target": "linkText=Выйти",
@@ -961,10 +927,10 @@
       ],
       "value": ""
     }, {
-      "id": "69eaeff6-21a6-4b4b-9062-8b6003833156",
+      "id": "7ef19e78-484b-4f32-968a-d0ab7f4b8fb6",
       "comment": "",
       "command": "setWindowSize",
-      "target": "1198x692",
+      "target": "1198x695",
       "targets": [],
       "value": ""
     }]

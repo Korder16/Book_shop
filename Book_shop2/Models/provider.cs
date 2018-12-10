@@ -8,12 +8,12 @@ namespace Book_shop2.Models
         
         [DataType(DataType.Text)]
         [Required(ErrorMessage = "Не указано название")]
-        [RegularExpression(@"[a-zA-Z]{3,50}", ErrorMessage = "Некорректное имя поставщика")]
+        [RegularExpression(@"[а-яА-Я\s]{3,50}", ErrorMessage = "Некорректное имя поставщика")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "Длина строки должна быть от 3 до 50 символов")]
         public string Name { get; set; }
         
         [DataType(DataType.Text)]
-        [RegularExpression(@"[a-zA-Z]{2,100}", ErrorMessage = "Некорректное название города")]
+        [RegularExpression(@"[а-яА-Я0-9\s.]{2,100}", ErrorMessage = "Некорректное название города")]
         [Required(ErrorMessage = "Не указан город")]
         public string City { get; set; }
         

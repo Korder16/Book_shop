@@ -86,30 +86,31 @@ namespace Book_shop2.Controllers
             if(ModelState.IsValid)
             {
                 //user user = await _db.Users.FirstOrDefaultAsync(u => u.Name == model.Name);
-                user user = _db.Users.FirstOrDefault(u => u.Name == model.Name);
-                if (user == null)
+                user currentUser = _db.Users.FirstOrDefault(u => u.Name == model.Name);
+                if (currentUser == null)
                 {
                     
                     // Добавляем пользователя в БД
-                    
-                    user = new user {Name = model.Name, Password = model.Password, 
+                    currentUser = new user {Name = model.Name, Password = model.Password, 
                         Email = model.Email, Activity = model.Activity, RoleId = 2};
                     //var userRole = await _db.Roles.FirstOrDefaultAsync(r => r.Name == "Работник магазина");
                     var userRole = _db.Roles.FirstOrDefault(r => r.Name == "Работник магазина");
                     
                     if (userRole != null)
-                        user.role = userRole;
+                        currentUser.role = userRole;
 
-                    //_db.Users.Add(user);
-                    _repo.CreateUser(user);
-                    //await _db.SaveChangesAsync();
-                    //_db.SaveChanges();
-                    _repo.Save();
+                    _db.Users.Add(currentUser);
+                    //_repo.Save();
+                    _db.SaveChanges();
 
                     return RedirectToAction("Users", "User");
                 }
                 else
                     ModelState.AddModelError("","Некорректные логин и(или) пароль");
+            }
+            else
+            {
+                ModelState.AddModelError("","Такой пользователь уже существует");
             }
 
             return View(model);

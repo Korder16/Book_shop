@@ -77,8 +77,8 @@ namespace Book_shop2.Controllers
                 currentUser.RoleId = model.RoleId;
                 
                 // Обновляем информацию о пользователе
-                _repo.UpdateUser(currentUser);
-                _repo.Save();
+                _db.Entry(currentUser).State = EntityState.Modified;
+                _db.SaveChanges();
                 return RedirectToAction("Users", "User");
             }
             else
