@@ -88,34 +88,6 @@ namespace Book_shop2.Tests.Unit_Tests
 
 
         [Theory]
-        [InlineData("Владимир Иванович", "Vlad", "Vlad", "vlad@mail.ru", "Работает")]
-        [InlineData("Антон", "Anton111", "Anton111", "anton@mail.ru", "Не работает")]
-        [InlineData("Иванов Владимир Владимирович", "IVlad", "IVlad", "ivlad@mail.ru", "Работает")]
-        public void Correct_Register_And_Redirect(string name, string password, 
-            string confirmPassword, string email, string activity)
-        {
-            // Arrange
-            MyBookShopContext _db = new MyBookShopContext(new DbContextOptions<MyBookShopContext>());
-            var mock = new Mock<IUserRepository>();
-            var controller = new AccountController(_db, mock.Object);
-            var registerModel = new RegisterModel
-            {
-                Name = name,
-                Password = password,
-                ConfirmPassword = confirmPassword,
-                Email = email,
-                Activity = activity
-            };
-
-            // Act
-            var result = controller.Register(registerModel);
-
-            // Assert
-            var redirectResult = Assert.IsType<RedirectToActionResult>(result);
-            Assert.Equal("Users", redirectResult?.ActionName);
-        }
-
-        [Theory]
         [InlineData("Владимир", "Vlad", "VVlad", "vlad@mail.ru", "Работает")]
         [InlineData("Антон", "Anton111", "Anton111", "anton", "Не работает")]
         [InlineData("", "", "", "", "")]

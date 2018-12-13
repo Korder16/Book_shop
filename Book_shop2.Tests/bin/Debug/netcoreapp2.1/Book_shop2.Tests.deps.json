@@ -2413,6 +2413,7 @@
           "Microsoft.EntityFrameworkCore.Design": "2.2.0-preview3-35497",
           "Microsoft.EntityFrameworkCore.Tools": "2.2.0-preview3-35497",
           "Microsoft.EntityFrameworkCore.Tools.DotNet": "2.1.0-preview1-final",
+          "Microsoft.NETCore.App": "2.1.0",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "2.2.0-preview1"
         },
         "runtime": {

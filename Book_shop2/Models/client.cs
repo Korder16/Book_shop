@@ -19,7 +19,7 @@ namespace Book_shop2.Models
         public string Email { get; set; }
         
         [Required(ErrorMessage ="Не указан номер телефона")]
-        [RegularExpression(@"[а-яА-Я0-9\s.]{2,100}", ErrorMessage = "Некорректный адрес")]
+        [RegularExpression(@"[а-яА-Я0-9\s.,]{2,100}", ErrorMessage = "Некорректный адрес")]
         public string Adress { get; set; }
     }
 }

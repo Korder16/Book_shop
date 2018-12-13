@@ -13,7 +13,7 @@ namespace Book_shop2.Models
         public string Name { get; set; }
         
         [DataType(DataType.Text)]
-        [RegularExpression(@"[а-яА-Я0-9\s.]{2,100}", ErrorMessage = "Некорректное название города")]
+        [RegularExpression(@"[а-яА-Я0-9\s.,]{2,100}", ErrorMessage = "Некорректное название города")]
         [Required(ErrorMessage = "Не указан город")]
         public string City { get; set; }
         

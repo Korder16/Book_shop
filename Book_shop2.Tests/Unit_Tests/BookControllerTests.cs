@@ -30,7 +30,7 @@ namespace Book_shop2.Tests.Unit_Tests
             // Является ли возвращаемый результат объектом ViewResult
             var viewResult = Assert.IsType<ViewResult>(result);
             
-            // Передается ли в преставление IEnumrable<client>
+            // Передается ли в преставление IEnumrable<book>
             var model = Assert.IsAssignableFrom<IEnumerable<book>>(viewResult.Model);
             
             // Сравнивается количество обхектов, которые передаются в представление
@@ -45,6 +45,7 @@ namespace Book_shop2.Tests.Unit_Tests
         }
 
 
+        // Проверяем функцию добавления книги на правильность работы
         [Theory]
         [InlineData("1984", "Джордж Оруэлл", "Роман", 350, 1949, 0)]
         [InlineData("Маленький принц", "Антуан де Сент-Экзюпери", "Сказка", 250, 1942, 0)]

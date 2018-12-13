@@ -32,11 +32,9 @@ namespace Book_shop2.Tests.Unit_Tests
             // Assert
             // Является ли возвращаемый результат объектом ViewResult
             var viewResult = Assert.IsType<ViewResult>(result);
-            
             // Передается ли в преставление IEnumrable<client>
             var model = Assert.IsAssignableFrom<IEnumerable<client>>(viewResult.Model);
-            
-            // Сравнивается количество обхектов, которые передаются в представление
+            // Сравнивается количество объектов, которые передаются в представление
             Assert.Equal(GetClients().Count, model.Count());
         }
 
@@ -47,6 +45,7 @@ namespace Book_shop2.Tests.Unit_Tests
             return clients;
         }
 
+        // Проверяем функцию добавления нового клиента на правильность работы
         [Theory]
         [InlineData("Дмитрий Иванович", "8(800)526-35-35", "dmitry@gmail.com", "г. Моcква, ул. Тверская, д.12")]
         [InlineData("Иванов Иван Иванович", "8(800)123-32-35", "dmitry@gmail.com", "г. Моcква, ул. Пушкинская, д.3")]
@@ -91,6 +90,7 @@ namespace Book_shop2.Tests.Unit_Tests
             
         }
 
+        // Проверяем функция редактирования информации о клиенте на правильность работы
         [Theory]
         [InlineData(1, "Владмир", "8(929)666-33-22", "vladimir@mail.ru", "г. Москва, ул. Покровская, 13")]
         [InlineData(2, "Иванов Иван Иванович", "8(929)999-99-99", "ivanovii@mail.ru", "г. Москва, ул. Покровская, 18")]
